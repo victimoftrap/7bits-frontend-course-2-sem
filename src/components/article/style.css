@@ -1,0 +1,23 @@
+.article {
+    font-family: Roboto, sans-serif;
+    margin-bottom: 40px;
+    font-size: 18px;
+    font-weight: 500;
+
+    height: 45px;
+    border: 1px solid #e5e5e5;
+    position: relative;
+}
+
+.article:last-child {
+    margin-bottom: 0;
+}
+
+.article__title {
+    color: #303030;
+    margin: 0;
+
+    position: absolute;
+    top: 25%;
+    left: 5%;
+}

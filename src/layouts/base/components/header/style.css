@@ -1,0 +1,19 @@
+.header {
+    background-color: #96efc0;
+    font-family: Roboto, sans-serif;
+    height: 60px;
+}
+
+.header__content {
+    box-sizing: border-box;
+    max-width: 1200px;
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.header__logo {
+    width: 122px;
+    height: 26px;
+    background: url("logo.png");
+}
