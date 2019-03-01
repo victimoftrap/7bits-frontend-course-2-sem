@@ -5,15 +5,15 @@
 }
 
 .header__content {
-    box-sizing: border-box;
-    max-width: 1200px;
-    width: 100%;
-    padding: 10px;
+    max-width: 1220px;
+    width: 90%;
     margin: 0 auto;
+
+    padding-top: 15px;
 }
 
 .header__logo {
     width: 122px;
     height: 26px;
-    background: url("logo.png");
+    background-image: url("logo.png");
 }

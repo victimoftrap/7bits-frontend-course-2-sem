@@ -5,8 +5,8 @@
     box-sizing: border-box;
 
     width: 100%;
-    max-width: 1200px;
-    padding: 0 10px;
+    max-width: 1220px;
+    /*padding: 0 10px;*/
     margin: 0 auto;
 
     font-family: 'Roboto', sans-serif;
@@ -14,14 +14,13 @@
 
 .main__side-bar {
     box-sizing: border-box;
-    padding: 15px 0 0;
-    max-width: 200px;
+    padding: 26px 0 0;
     justify-self: stretch;
 }
 
 .main__content {
     flex-grow: 1;
     box-sizing: border-box;
-    padding: 15px 10px 0;
+    padding: 26px 10px 0;
     background-color: #fff;
 }
