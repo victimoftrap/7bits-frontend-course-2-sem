@@ -4,13 +4,17 @@
 }
 
 .side-bar__list {
+    padding: 0;
     margin: 0;
     display: inline-block;
     list-style: none;
+
+    max-width: 125px;
+    width: 90%;
 }
 
 .side-bar__item {
-    padding-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .side-bar__item:last-child {
@@ -24,4 +28,14 @@
     font-size: 18px;
     font-weight: 500;
     color: #979797;
+}
+
+.item__todo {
+    padding-left: 26px;
+    background: url("images/todo_gray.png") no-repeat;
+}
+
+.item__done {
+    padding-left: 26px;
+    background: url("images/done_gray.png") no-repeat;
 }

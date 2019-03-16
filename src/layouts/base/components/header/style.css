@@ -1,5 +1,5 @@
 .header {
-    background-color: #96efc0;
+    background: linear-gradient(to right, #96efc0 5%, #73baff);
     font-family: Roboto, sans-serif;
     height: 60px;
 }
@@ -15,5 +15,5 @@
 .header__logo {
     width: 122px;
     height: 26px;
-    background-image: url("logo.png");
+    background-image: url("images/logo.png");
 }
