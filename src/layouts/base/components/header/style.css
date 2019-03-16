@@ -16,4 +16,5 @@
     width: 122px;
     height: 26px;
     background-image: url("images/logo.png");
+    cursor: pointer;
 }

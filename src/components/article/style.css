@@ -1,6 +1,9 @@
 .article {
     font-family: Roboto, sans-serif;
     margin-bottom: 6px;
+
+    /*display: flex;*/
+    /*flex-flow: column;*/
 }
 
 .article:last-child {
@@ -17,8 +20,45 @@
     padding-top: 20px;
     padding-bottom: 15px;
     padding-left: 35px;
+    /*padding-right: 70px;*/
 }
 
-.article__title:hover {
+.article:hover {
     box-shadow: 1px 2px 3px 2px #c0eee0;
+}
+
+.article__edit {
+    float: right;
+    margin-top: -35px;
+    margin-right: 55px;
+}
+
+.article__delete {
+    float: right;
+    margin-top: -35px;
+    margin-right: 22px;
+}
+
+.delete {
+    height: 14px;
+    width: 11px;
+    background: url("./images/delete.png") top left no-repeat;
+    cursor: pointer;
+}
+
+.delete:hover {
+    background: url("./images/delete_red.png") no-repeat;
+}
+
+.edit {
+    height: 14px;
+    width: 15px;
+    background: url("./images/pencil.png") top left no-repeat;
+    cursor: pointer;
+}
+
+.edit:hover {
+    width: 14px;
+    margin-right: 56px;
+    background: url("./images/pencil_blue.png") no-repeat;
 }

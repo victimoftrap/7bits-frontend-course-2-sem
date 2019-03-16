@@ -33,9 +33,11 @@
 .item__todo {
     padding-left: 26px;
     background: url("images/todo_gray.png") no-repeat;
+    cursor: pointer;
 }
 
 .item__done {
     padding-left: 26px;
     background: url("images/done_gray.png") no-repeat;
+    cursor: pointer;
 }

@@ -8,6 +8,8 @@ export default class Article extends React.Component {
     return (
       <article className="article">
         <h3 className="article__title">{this.props.title}</h3>
+        <div className="article__edit edit"/>
+        <div className="article__delete delete"/>
       </article>
     );
   };
