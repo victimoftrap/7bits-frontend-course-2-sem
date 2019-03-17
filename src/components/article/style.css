@@ -1,9 +1,6 @@
 .article {
     font-family: Roboto, sans-serif;
     margin-bottom: 6px;
-
-    /*display: flex;*/
-    /*flex-flow: column;*/
 }
 
 .article:last-child {
@@ -19,8 +16,7 @@
     box-shadow: 0 1px 2px 1px rgba(0,0,0,0.2);
     padding-top: 20px;
     padding-bottom: 15px;
-    padding-left: 35px;
-    /*padding-right: 70px;*/
+    padding-left: 36px;
 }
 
 .article:hover {
@@ -39,26 +35,36 @@
     margin-right: 22px;
 }
 
+.article:hover .delete {
+    visibility: visible;
+}
+
 .delete {
+    visibility: hidden;
+    cursor: pointer;
     height: 14px;
     width: 11px;
-    background: url("./images/delete.png") top left no-repeat;
-    cursor: pointer;
+    background: url('./images/tool_sprites.png') -5px -29px;
 }
 
 .delete:hover {
-    background: url("./images/delete_red.png") no-repeat;
+    background: url('./images/tool_sprites.png') -26px -29px;
+}
+
+.article:hover .edit {
+    visibility: visible;
 }
 
 .edit {
+    visibility: hidden;
+    cursor: pointer;
     height: 14px;
     width: 15px;
-    background: url("./images/pencil.png") top left no-repeat;
-    cursor: pointer;
+    background: url('./images/tool_sprites.png') -5px -5px;
 }
 
 .edit:hover {
     width: 14px;
     margin-right: 56px;
-    background: url("./images/pencil_blue.png") no-repeat;
+    background: url('./images/tool_sprites.png') -30px -5px;
 }

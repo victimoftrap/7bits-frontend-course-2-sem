@@ -16,11 +16,11 @@ export default class Article extends React.Component {
 };
 
 Article.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string
+  taskStatus: PropTypes.string,
+  title: PropTypes.string
 };
 
 Article.defaultProps = {
-  title: '',
-  description: ''
+  taskStatus: 'inbox',
+  title: ''
 };

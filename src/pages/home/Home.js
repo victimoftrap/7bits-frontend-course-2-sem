@@ -8,9 +8,9 @@ import './style.css';
 
 export default class Home extends React.Component {
   renderList = () => {
-    return list.data.map((item, index) => {
+    return list.data.map((item) => {
       return (
-        <Article key={index} title={item.title} description={item.description} />
+        <Article title={item.title}/>
       );
     });
   };
