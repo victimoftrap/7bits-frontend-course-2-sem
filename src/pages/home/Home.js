@@ -10,7 +10,7 @@ export default class Home extends React.Component {
   renderList = () => {
     return list.data.map((item) => {
       return (
-        <Article title={item.title}/>
+        <Article title={item.text} status={item.status}/>
       );
     });
   };
