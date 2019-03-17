@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Article from '../../components/task/Article';
+import Task from '../../components/task/Task';
 
 import list from './list';
 
@@ -10,7 +10,7 @@ export default class Home extends React.Component {
   renderList = () => {
     return list.data.map((item) => {
       return (
-        <Article title={item.text} status={item.status}/>
+        <Task title={item.text} status={item.status}/>
       );
     });
   };
