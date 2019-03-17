@@ -18,3 +18,14 @@
     background-image: url("images/logo.png");
     cursor: pointer;
 }
+
+.header__user {
+    cursor: pointer;
+    float: right;
+    margin-top: -22px;
+}
+
+.user {
+    font-size: 16px;
+    color: white;
+}

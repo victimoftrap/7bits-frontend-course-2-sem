@@ -19,8 +19,8 @@ export default class Article extends React.Component {
 };
 
 Article.propTypes = {
-  status: PropTypes.string,
-  title: PropTypes.string
+  status: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 Article.defaultProps = {

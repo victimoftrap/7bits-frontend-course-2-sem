@@ -20,6 +20,6 @@
 .main__content {
     flex-grow: 1;
     box-sizing: border-box;
-    padding: 26px 10px 0;
+    padding-top: 26px;
     background-color: #fff;
 }
