@@ -1,13 +1,13 @@
-.article {
+.task {
     font-family: Roboto, sans-serif;
     margin-bottom: 10px;
 }
 
-.article:last-child {
+.task:last-child {
     margin-bottom: 0;
 }
 
-.article__title {
+.task__title {
     font-size: 18px;
     font-weight: 500;
     color: #303030;
@@ -19,23 +19,23 @@
     padding-left: 36px;
 }
 
-.article:hover {
+.task:hover {
     box-shadow: 1px 2px 3px 2px #c0eee0;
 }
 
-.article__edit {
+.task__edit {
     float: right;
     margin-top: -35px;
     margin-right: 55px;
 }
 
-.article__delete {
+.task__delete {
     float: right;
     margin-top: -35px;
     margin-right: 22px;
 }
 
-.article:hover .delete {
+.task:hover .delete {
     visibility: visible;
 }
 
@@ -51,7 +51,7 @@
     background: url('./images/tool_sprites.png') -26px -29px;
 }
 
-.article:hover .edit {
+.task:hover .edit {
     visibility: visible;
 }
 
@@ -67,4 +67,28 @@
     width: 14px;
     margin-right: 56px;
     background: url('./images/tool_sprites.png') -30px -5px;
+}
+
+.task__mark {
+    float: left;
+    margin-top: 24px;
+    margin-left: 10px;
+}
+
+.checkbox {
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+    background: url('./images/button_sprites.png') -5px -5px;
+}
+
+.checkbox:hover {
+    content: '';
+    background: url('./images/button_sprites.png') -29px -5px;
+}
+
+.done-mark {
+    width: 16px;
+    height: 12px;
+    background: url("./images/done_task_gray.png");
 }
