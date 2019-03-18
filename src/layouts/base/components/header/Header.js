@@ -9,7 +9,7 @@ export default class Header extends React.Component {
       <header className='header'>
         <div className='header__content'>
           <div className='header__logo'/>
-          <a className="header__user user">{this.props.user}</a>
+          <a className="header__user user" href="/">{this.props.user}</a>
         </div>
       </header>
     );

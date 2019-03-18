@@ -11,8 +11,11 @@ export default class Task extends React.Component {
         {this.props.status === "done" && <button className="task__mark done-mark"/>}
 
         <h3 className="task__title">{this.props.title}</h3>
-        {this.props.status === "inbox" && <button className="task__edit edit"/>}
-        <button className="task__delete delete"/>
+
+        <div className="task__tools">
+          {this.props.status === "inbox" && <button className="task__edit edit"/>}
+          <button className="task__delete delete"/>
+        </div>
       </article>
     );
   };
