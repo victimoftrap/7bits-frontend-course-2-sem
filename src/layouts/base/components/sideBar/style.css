@@ -3,7 +3,11 @@
     width: 90%;
 }
 
-.side-bar__list {
+.nav-menu {
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav-menu__list {
     padding: 0;
     margin: 0;
     display: inline-block;
@@ -13,21 +17,24 @@
     width: 90%;
 }
 
-.side-bar__item {
+.nav-menu__item {
     margin-bottom: 30px;
 }
 
-.side-bar__item:last-child {
+.nav-menu__item:last-child {
     padding-bottom: 0;
 }
 
-.side-bar__title {
+.nav-menu__title {
     margin: 0;
-    font-family: Roboto, sans-serif;
     text-decoration: none;
     font-size: 18px;
     font-weight: 500;
     color: #979797;
+}
+
+.nav-menu__title_active {
+    color: #78c2f5;
 }
 
 .item__todo {
@@ -35,7 +42,7 @@
     cursor: pointer;
     background: url("images/todo_gray.png") no-repeat;
     /*width: 20px; height: 20px;*/
-    /*background: url('./images/page_sprites.png') -35px -5px no-repeat;*/
+    /*background: url('./images/header_sprites.png') -35px -5px no-repeat;*/
 }
 
 .item__done {
@@ -43,5 +50,17 @@
     cursor: pointer;
     background: url("images/done_gray.png") no-repeat;
     /*width: 20px; height: 20px;*/
-    /*background: url('./images/page_sprites.png') -5px -5px no-repeat;*/
+    /*background: url('./images/header_sprites.png') -5px -5px no-repeat;*/
+}
+
+.item__todo_active {
+    background: url("./images/todo_blue.png") no-repeat;
+    /*width: 20px; height: 20px;*/
+    /*background: url('css_sprites.png') -35px -35px;*/
+}
+
+.item__done_active {
+    background: url("./images/done_blue.png") no-repeat;
+    /*width: 20px; height: 20px;*/
+    /*background: url('css_sprites.png') -5px -35px;*/
 }
