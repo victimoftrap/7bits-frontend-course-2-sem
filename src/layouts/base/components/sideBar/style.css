@@ -25,7 +25,7 @@
     padding-bottom: 0;
 }
 
-.nav-menu__title {
+.nav-menu__link {
     margin: 0;
     text-decoration: none;
     font-size: 18px;
@@ -33,11 +33,11 @@
     color: #979797;
 }
 
-.nav-menu__title_active {
+.nav-menu__link_active {
     color: #78c2f5;
 }
 
-.item__todo {
+.nav-menu__link_todo {
     padding-left: 26px;
     cursor: pointer;
     background: url("images/todo_gray.png") no-repeat;
@@ -45,7 +45,7 @@
     /*background: url('./images/header_sprites.png') -35px -5px no-repeat;*/
 }
 
-.item__done {
+.nav-menu__link_done {
     padding-left: 26px;
     cursor: pointer;
     background: url("images/done_gray.png") no-repeat;
@@ -53,13 +53,13 @@
     /*background: url('./images/header_sprites.png') -5px -5px no-repeat;*/
 }
 
-.item__todo_active {
+.nav-menu__link_todo.nav-menu__link_active {
     background: url("./images/todo_blue.png") no-repeat;
     /*width: 20px; height: 20px;*/
     /*background: url('css_sprites.png') -35px -35px;*/
 }
 
-.item__done_active {
+.nav-menu__link_done.nav-menu__link_active {
     background: url("./images/done_blue.png") no-repeat;
     /*width: 20px; height: 20px;*/
     /*background: url('css_sprites.png') -5px -35px;*/

@@ -5,7 +5,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 import './index.css';
 
 import Base from './layouts/base/Base';
-import Home from './pages/home/Home';
+import ToDo from './pages/todo/ToDo';
 import Done from './pages/done/Done';
 
 import './index.css';
@@ -13,7 +13,7 @@ import './index.css';
 ReactDOM.render(
     <BrowserRouter>
         <Base>
-            <Route exact path='/' component={Home}/>
+            <Route exact path='/' component={ToDo}/>
             <Route path='/done' component={Done}/>
         </Base>
     </BrowserRouter>,

@@ -6,11 +6,11 @@ import list from './list';
 
 import './style.css';
 
-export default class Home extends React.Component {
+export default class ToDo extends React.Component {
   renderList = () => {
     return list.data.map((item) => {
       return (
-        <Task title={item.text} status={item.status}/>
+        <Task key={item.id} id={item.id} title={item.text} status={item.status}/>
       );
     });
   };
