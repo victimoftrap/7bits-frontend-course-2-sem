@@ -18,28 +18,8 @@
     box-shadow: 1px 2px 3px 2px #c0eee0;
 }
 
-.task__mark {
+.task__progress {
     margin-left: 10px;
-}
-
-.checkbox {
-    width: 14px;
-    height: 14px;
-    border: none;
-    cursor: pointer;
-    background: url('./images/button_sprites.png') -5px -5px;
-}
-
-.checkbox:hover {
-    content: '';
-    background: url('./images/button_sprites.png') -29px -5px;
-}
-
-.done-mark {
-    width: 16px;
-    height: 12px;
-    border: none;
-    background: url("./images/done_task_gray.png");
 }
 
 .task__title {
@@ -59,45 +39,10 @@
     flex-direction: row;
 }
 
-.task__edit {
+.task__edit + .task__delete {
     margin-right: 20px;
 }
 
 .task__delete {
-    margin-right: 20px;
-}
-
-.task:hover .delete {
-    visibility: visible;
-}
-
-.delete {
-    height: 14px;
-    width: 11px;
-    border: none;
-    cursor: pointer;
-    visibility: hidden;
-    background: url('./images/tool_sprites.png') -5px -29px;
-}
-
-.delete:hover {
-    background: url('./images/tool_sprites.png') -26px -29px;
-}
-
-.task:hover .edit {
-    visibility: visible;
-}
-
-.edit {
-    height: 14px;
-    width: 15px;
-    border: none;
-    cursor: pointer;
-    visibility: hidden;
-    background: url('./images/tool_sprites.png') -5px -5px;
-}
-
-.edit:hover {
-    width: 14px;
-    background: url('./images/tool_sprites.png') -30px -5px;
+    margin-left: 20px;
 }

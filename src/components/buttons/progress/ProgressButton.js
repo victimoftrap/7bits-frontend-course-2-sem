@@ -1,31 +1,32 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-export default class MarkerButton extends React.Component {
-    clickHandler = (event) => {
-        event.preventDefault();
+import './style.css';
+
+export default class ProgressButton extends React.Component {
+    clickHandler = () => {
         console.log(this.props.id);
     };
 
     render() {
-        const { id, className, onClick } = this.props;
+        const { className, onClick } = this.props;
 
         return (
             <button
-                className={`task__mark ${className}`}
+                className={`task__progress ${className}`}
                 onClick={onClick}
             />
         );
     };
 };
 
-MarkerButton.propTypes = {
+ProgressButton.propTypes = {
     id: PropTypes.string.isRequired,
     className: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired
 };
 
-MarkerButton.defaultProps = {
+ProgressButton.defaultProps = {
     id: '',
     className: ''
 };

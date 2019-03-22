@@ -1,0 +1,34 @@
+.task:hover .delete {
+    visibility: visible;
+}
+
+.delete {
+    height: 14px;
+    width: 11px;
+    border: none;
+    cursor: pointer;
+    visibility: hidden;
+    background: url('./images/tool_sprites.png') -5px -29px;
+}
+
+.delete:hover {
+    background: url('./images/tool_sprites.png') -26px -29px;
+}
+
+.task:hover .edit {
+    visibility: visible;
+}
+
+.edit {
+    height: 14px;
+    width: 15px;
+    border: none;
+    cursor: pointer;
+    visibility: hidden;
+    background: url('./images/tool_sprites.png') -5px -5px;
+}
+
+.edit:hover {
+    width: 14px;
+    background: url('./images/tool_sprites.png') -30px -5px;
+}

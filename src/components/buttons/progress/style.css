@@ -1,0 +1,19 @@
+.inbox-button {
+    width: 14px;
+    height: 14px;
+    border: none;
+    cursor: pointer;
+    background: url('./images/button_sprites.png') -5px -5px;
+}
+
+.inbox-button:hover {
+    content: '';
+    background: url('./images/button_sprites.png') -29px -5px;
+}
+
+.done-button {
+    width: 16px;
+    height: 12px;
+    border: none;
+    background: url("./images/done_task_gray.png");
+}

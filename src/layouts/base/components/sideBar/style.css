@@ -5,6 +5,7 @@
 
 .nav-menu {
     font-family: 'Roboto', sans-serif;
+    font-weight: 400;
 }
 
 .nav-menu__list {
@@ -54,12 +55,14 @@
 }
 
 .nav-menu__link_todo.nav-menu__link_active {
+    font-weight: 500;
     background: url("./images/todo_blue.png") no-repeat;
     /*width: 20px; height: 20px;*/
     /*background: url('css_sprites.png') -35px -35px;*/
 }
 
 .nav-menu__link_done.nav-menu__link_active {
+    font-weight: 500;
     background: url("./images/done_blue.png") no-repeat;
     /*width: 20px; height: 20px;*/
     /*background: url('css_sprites.png') -5px -35px;*/

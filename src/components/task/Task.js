@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './style.css';
 
-import MarkerButton from "../buttons/marker/MarkerButton";
+import ProgressButton from "../buttons/progress/ProgressButton";
 import ToolButton from "../buttons/tool/ToolButton";
 
 export default class Task extends React.Component {
@@ -14,20 +14,26 @@ export default class Task extends React.Component {
   render() {
     return (
       <article className="task">
-        <MarkerButton
+        <ProgressButton
             id={this.props.id}
-            className={this.props.status === "inbox" ? "checkbox" : "done-mark"}
+            className={this.props.status === "inbox" ? "inbox-button" : "done-button"}
             onClick={this.onClick}
         />
 
         <h3 className={"task__title"}>{this.props.title}</h3>
 
         <div className={"task__tools"}>
-          {this.props.status === "inbox" && <ToolButton id={this.props.id} className={"edit"}/>}
+        {this.props.status === "inbox" && <ToolButton
+            id={this.props.id}
+            className={"edit"}
+            onClick={this.onClick}
+        />
+        }
 
           <ToolButton
               id={this.props.id}
               className={"delete"}
+              onClick={this.onClick}
           />
         </div>
       </article>
