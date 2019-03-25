@@ -16,10 +16,3 @@
     padding: 26px 0 0;
     justify-self: stretch;
 }
-
-.main__content {
-    flex-grow: 1;
-    box-sizing: border-box;
-    padding-top: 26px;
-    background-color: #fff;
-}

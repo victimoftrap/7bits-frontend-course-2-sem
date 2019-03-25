@@ -1,0 +1,18 @@
+.form__new-task {
+    max-width: 400px;
+    width: 95%;
+
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: #939393;
+
+    border: none;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #5ed9b4;
+}
+
+.form__new-task:focus {
+    color: black;
+}

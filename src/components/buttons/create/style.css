@@ -1,0 +1,12 @@
+.form__create {
+    border: none;
+    cursor: pointer;
+    width: 130px;
+    height: 30px;
+    border-radius: 15px;
+
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    background: #50d5ad url("./images/create-btn-icon.png") no-repeat 15% center;
+}

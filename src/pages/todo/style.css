@@ -1,0 +1,11 @@
+.main__content {
+    flex-grow: 1;
+    box-sizing: border-box;
+    padding-top: 26px;
+    background-color: #fff;
+}
+
+.main__form {
+    display: flex;
+    flex-direction: row;
+}
