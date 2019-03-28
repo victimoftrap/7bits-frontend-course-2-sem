@@ -1,11 +1,12 @@
 import React from 'react';
 
-import Task from '../../components/task/Task';
+import TodoTask from "../../components/task/todo/TodoTask";
 import TaskInputField from "../../components/form/field/TaskInputField";
 import CreateTaskButton from "../../components/buttons/create/CreateTaskButton";
 
-import list from './list';
 import './style.css';
+
+import list from './list';
 
 export default class ToDo extends React.Component {
     constructor(props) {
@@ -54,7 +55,7 @@ export default class ToDo extends React.Component {
     renderList = () => {
         return this.state.taskList.map((item) => {
             return (
-                <Task key={item.id} id={item.id} title={item.text} status={item.status}/>
+                <TodoTask key={item.id} id={item.id} title={item.text}/>
             );
         });
     };

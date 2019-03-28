@@ -9,7 +9,7 @@ export default class ProgressButton extends React.Component {
     };
 
     render() {
-        const { className, onClick } = this.props;
+        const {className, onClick} = this.props;
 
         return (
             <button

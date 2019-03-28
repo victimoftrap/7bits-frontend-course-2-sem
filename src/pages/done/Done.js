@@ -1,13 +1,16 @@
 import React from 'react';
-import Task from "../../components/task/Task";
-import list from './list';
+
+import DoneTask from "../../components/task/done/DoneTask";
+
 import './style.css';
+
+import list from './list';
 
 export default class Done extends React.Component {
     renderList = () => {
         return list.data.map((item) => {
             return (
-                <Task key={item.id} id={item.id} title={item.text} status={item.status}/>
+                <DoneTask key={item.id} id={item.id} title={item.text}/>
             );
         });
     };
