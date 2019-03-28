@@ -4,17 +4,14 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 export default class ProgressButton extends React.Component {
-    clickHandler = () => {
-        console.log(this.props.id);
-    };
-
     render() {
-        const {className, onClick} = this.props;
+        const {className, type, disabled} = this.props;
 
         return (
             <button
                 className={`form__create ${className}`}
-                onClick={onClick}
+                type={type}
+                disabled={disabled}
             >Create
             </button>
         );
@@ -23,9 +20,12 @@ export default class ProgressButton extends React.Component {
 
 ProgressButton.propTypes = {
     className: PropTypes.string,
-    onClick: PropTypes.func
+    type: PropTypes.string,
+    disabled: PropTypes.bool
 };
 
 ProgressButton.defaultProps = {
-    className: ''
+    className: '',
+    type: 'submit',
+    disabled: false
 };

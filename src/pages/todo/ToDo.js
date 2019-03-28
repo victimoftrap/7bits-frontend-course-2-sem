@@ -8,6 +8,35 @@ import list from './list';
 import './style.css';
 
 export default class ToDo extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            text: '',
+            taskList: list.data
+        };
+    }
+
+    onChange = (event) => {
+        this.setState({
+                text: event.target.value
+            }
+        );
+    };
+
+    onSubmit = (event) => {
+        event.preventDefault(); // for cancelling default page updating
+        this.setState( {
+            taskList: [
+                {
+                    id: "101",
+                    text: this.state.text,
+                    status: "inbox"
+                },
+                ...this.state.taskList]
+        })
+    };
+
     renderList = () => {
         return list.data.map((item) => {
             return (
@@ -19,9 +48,16 @@ export default class ToDo extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <form className="main__form">
-                    <TaskInputField/>
-                    <CreateTaskButton/>
+                <form className="main__form"
+                      onSubmit={this.onSubmit}
+                >
+                    <TaskInputField
+                        value={this.state.text}
+                        onChange={this.onChange}
+                    />
+                    <CreateTaskButton
+                        type={"submit"}
+                    />
                 </form>
                 {this.renderList()}
             </React.Fragment>
