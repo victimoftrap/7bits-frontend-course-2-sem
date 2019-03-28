@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {NavLink} from "react-router-dom";
+import {NavLink} from 'react-router-dom';
 
 import './style.css';
 
+/**
+ * Component for site sidebar
+ */
 export default class SideBar extends React.Component {
     render() {
-        const { className } = this.props;
+        const {className} = this.props;
 
         return (
             <aside className={`side-bar${className ? ` ${className}` : ''}`}>

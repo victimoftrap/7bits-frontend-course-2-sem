@@ -6,7 +6,13 @@ import './style.css';
 import ProgressButton from "../../buttons/progress/ProgressButton";
 import ToolButton from "../../buttons/tool/ToolButton";
 
+/**
+ * Base component for task
+ */
 export default class Task extends React.Component {
+    /**
+     * Function that handles mouse click on button
+     */
     onClick = () => {
         console.log(this.props.taskId);
     };

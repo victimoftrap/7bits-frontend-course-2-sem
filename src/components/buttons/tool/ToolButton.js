@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 
 import './style.css';
 
+/**
+ * Button component for edition task
+ */
 export default class ToolButton extends React.Component {
+    /**
+     * Handle mouse click on button
+     */
     clickHandler = () => {
         console.log(this.props.id);
     };

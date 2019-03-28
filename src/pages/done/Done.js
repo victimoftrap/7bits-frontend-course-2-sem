@@ -6,7 +6,14 @@ import './style.css';
 
 import list from './list';
 
+/**
+ * Component-container for tasks with status "done"
+ */
 export default class Done extends React.Component {
+    /**
+     * Convert values from json to list of <DoneTask/> tags
+     * @returns {*}
+     */
     renderList = () => {
         return list.data.map((item) => {
             return (
@@ -15,6 +22,10 @@ export default class Done extends React.Component {
         });
     };
 
+    /**
+     * Render part of page
+     * @returns {*} React fragment
+     */
     render() {
         return (
             <React.Fragment>

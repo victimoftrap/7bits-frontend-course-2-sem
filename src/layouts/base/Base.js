@@ -6,7 +6,9 @@ import SideBar from './components/sideBar/SideBar';
 
 import './style.css';
 
-
+/**
+ * Base layout of site page
+ */
 export default class Base extends React.Component {
     render() {
         return (

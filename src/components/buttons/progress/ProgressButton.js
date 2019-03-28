@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 
 import './style.css';
 
+/**
+ * Button component for making new status to task
+ */
 export default class ProgressButton extends React.Component {
+    /**
+     * Handle mouse click on button
+     */
     clickHandler = () => {
         console.log(this.props.id);
     };

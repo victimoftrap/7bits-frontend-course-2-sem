@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 
 import './style.css';
 
+/**
+ * Component for user input field
+ */
 export default class TaskInputField extends React.Component{
     render() {
         const {value, type, name, placeholder, onChange} = this.props;

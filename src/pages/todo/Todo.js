@@ -8,7 +8,10 @@ import './style.css';
 
 import list from './list';
 
-export default class ToDo extends React.Component {
+/**
+ * Component-container for tasks with status "inbox". Container for main page
+ */
+export default class Todo extends React.Component {
     constructor(props) {
         super(props);
 
@@ -49,8 +52,8 @@ export default class ToDo extends React.Component {
     };
 
     /**
-     * Convert values from json to list of <Task/> tags
-     * @returns {*[]} <Task/> with values from json
+     * Convert values from json to list of <TodoTask/> tags
+     * @returns {*[]} <TodoTask/> with values from json
      */
     renderList = () => {
         return this.state.taskList.map((item) => {
@@ -60,6 +63,10 @@ export default class ToDo extends React.Component {
         });
     };
 
+    /**
+     * Render part of page
+     * @returns {*} React fragment
+     */
     render() {
         return (
             <React.Fragment>

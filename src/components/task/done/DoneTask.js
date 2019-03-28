@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 import Task from "../base/Task";
 
+/**
+ * Component for task on Todo page
+ */
 export default class TodoTask extends React.Component {
     render() {
         const {id, title} = this.props;

@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 
 import './style.css';
 
-export default class ProgressButton extends React.Component {
+/**
+ * Button component for creating new task
+ */
+export default class CreateTaskButton extends React.Component {
     render() {
         const {className, type, disabled} = this.props;
 
@@ -18,13 +21,13 @@ export default class ProgressButton extends React.Component {
     };
 };
 
-ProgressButton.propTypes = {
+CreateTaskButton.propTypes = {
     className: PropTypes.string,
     type: PropTypes.string,
     disabled: PropTypes.bool
 };
 
-ProgressButton.defaultProps = {
+CreateTaskButton.defaultProps = {
     className: "",
     type: "submit",
     disabled: false
