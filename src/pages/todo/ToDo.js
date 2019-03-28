@@ -12,33 +12,47 @@ export default class ToDo extends React.Component {
         super(props);
 
         this.state = {
-            text: '',
+            value: "",
             taskList: list.data
         };
     }
 
+    /**
+     * Add new entered character to state
+     * @param event - event of pressing on button
+     */
     onChange = (event) => {
         this.setState({
-                text: event.target.value
+                value: event.target.value
             }
         );
     };
 
+    /**
+     * Add new task, that text entered from input
+     * @param event - event of submitting form
+     */
     onSubmit = (event) => {
-        event.preventDefault(); // for cancelling default page updating
-        this.setState( {
+        event.preventDefault();
+        this.setState({
             taskList: [
                 {
                     id: "101",
-                    text: this.state.text,
+                    text: this.state.value,
                     status: "inbox"
                 },
-                ...this.state.taskList]
+                ...this.state.taskList
+            ],
+            value: ""
         })
     };
 
+    /**
+     * Convert values from json to list of <Task/> tags
+     * @returns {*[]} <Task/> with values from json
+     */
     renderList = () => {
-        return list.data.map((item) => {
+        return this.state.taskList.map((item) => {
             return (
                 <Task key={item.id} id={item.id} title={item.text} status={item.status}/>
             );
@@ -52,11 +66,13 @@ export default class ToDo extends React.Component {
                       onSubmit={this.onSubmit}
                 >
                     <TaskInputField
-                        value={this.state.text}
+                        value={this.state.value}
+                        placeholder={"Your text here"}
                         onChange={this.onChange}
                     />
                     <CreateTaskButton
                         type={"submit"}
+                        disabled={this.state.value.length === 0}
                     />
                 </form>
                 {this.renderList()}

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import './style.css';
@@ -25,7 +25,7 @@ ProgressButton.propTypes = {
 };
 
 ProgressButton.defaultProps = {
-    className: '',
-    type: 'submit',
+    className: "",
+    type: "submit",
     disabled: false
 };
