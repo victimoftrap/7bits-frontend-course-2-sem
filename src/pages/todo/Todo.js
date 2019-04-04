@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux'
 
 import TodoTask from "../../components/task/todo/TodoTask";
 import TaskInputField from "../../components/form/field/TaskInputField";
@@ -11,7 +12,7 @@ import list from './list';
 /**
  * Component-container for tasks with status "inbox". Container for main page
  */
-export default class Todo extends React.Component {
+class Todo extends React.Component {
     constructor(props) {
         super(props);
 
@@ -87,4 +88,23 @@ export default class Todo extends React.Component {
             </React.Fragment>
         );
     };
-};
+}
+
+/**
+ * Function for converting current state of store to props
+ * @param state - state of store
+ * @returns {{}}
+ */
+const mapStateToProps = (state) => ({});
+
+/**
+ * Send action to store
+ * @param dispatch - method for sending action
+ * @returns {{}}
+ */
+const mapDispatchToProps = (dispatch) => ({});
+
+/**
+ * Connect component with store
+ */
+export default connect(mapStateToProps, mapDispatchToProps)(Todo);

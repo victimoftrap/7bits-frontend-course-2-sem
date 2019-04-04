@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from "react-redux";
 
 import DoneTask from "../../components/task/done/DoneTask";
 
@@ -9,7 +10,7 @@ import list from './list';
 /**
  * Component-container for tasks with status "done"
  */
-export default class Done extends React.Component {
+class Done extends React.Component {
     /**
      * Convert values from json to list of <DoneTask/> tags
      * @returns {*}
@@ -33,4 +34,23 @@ export default class Done extends React.Component {
             </React.Fragment>
         );
     };
-};
+}
+
+/**
+ * Function for converting current state of store to props
+ * @param state - state of store
+ * @returns {{}}
+ */
+const mapStateToProps = (state) => ({});
+
+/**
+ * Send action to store
+ * @param dispatch - method for sending action
+ * @returns {{}}
+ */
+const mapDispatchToProps = (dispatch) => ({});
+
+/**
+ * Connect component with store
+ */
+export default connect(mapStateToProps, mapDispatchToProps)(Done);
