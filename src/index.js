@@ -1,25 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route} from "react-router-dom";
-import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
-import thunk from 'redux-thunk';
-
-import './index.css';
 
 import Base from './layouts/base/Base';
-import Todo from "./pages/todo/Todo";
+import Todo from './pages/todo/Todo';
 import Done from './pages/done/Done';
 
-import rootReducer from './reducers/rootReducer';
+import store from './store/store';
 
-/**
- * Create store for application
- */
-const store = createStore(
-    rootReducer,
-    applyMiddleware(thunk)
-);
+import './index.css';
 
 /**
  * Entry point for project

@@ -1,7 +1,9 @@
-/**
- * Root reducer for store
- */
-const rootReducer = () => {
-};
+import {combineReducers} from 'redux';
 
-export default rootReducer;
+import taskListReducer from './taskList/taskListReducer';
+
+export default (state = {}, action) => {
+    return combineReducers({
+        taskListReducer
+    })(state, action);
+}
