@@ -1,22 +1,27 @@
 import React from 'react';
 import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+
+import getTaskList from "../../actions/tasksList/getTaskList";
 
 import DoneTask from "../../components/task/done/DoneTask";
 
 import './style.css';
 
-import list from './list';
-
 /**
  * Component-container for tasks with status "done"
  */
 class Done extends React.Component {
+    componentDidMount() {
+        this.props.getTaskList("done");
+    }
+
     /**
      * Convert values from json to list of <DoneTask/> tags
      * @returns {*}
      */
     renderList = () => {
-        return list.data.map((item) => {
+        return this.props.taskList.map((item) => {
             return (
                 <DoneTask key={item.id} id={item.id} title={item.text}/>
             );
@@ -41,14 +46,18 @@ class Done extends React.Component {
  * @param state - state of store
  * @returns {{}}
  */
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+    taskList: state.taskListReducer.taskList
+});
 
 /**
  * Send action to store
  * @param dispatch - method for sending action
  * @returns {{}}
  */
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+    getTaskList: bindActionCreators(getTaskList, dispatch)
+});
 
 /**
  * Connect component with store

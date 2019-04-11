@@ -1,13 +1,14 @@
 import React from 'react';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import {bindActionCreators} from "redux";
+
+import getTaskList from "../../actions/tasksList/getTaskList";
 
 import TodoTask from "../../components/task/todo/TodoTask";
 import TaskInputField from "../../components/form/field/TaskInputField";
 import CreateTaskButton from "../../components/buttons/create/CreateTaskButton";
 
 import './style.css';
-
-import list from './list';
 
 /**
  * Component-container for tasks with status "inbox". Container for main page
@@ -18,8 +19,12 @@ class Todo extends React.Component {
 
         this.state = {
             value: "",
-            taskList: list.data
+            taskList: [] // list.data
         };
+    }
+
+    componentDidMount() {
+        this.props.getTaskList("inbox");
     }
 
     /**
@@ -57,7 +62,8 @@ class Todo extends React.Component {
      * @returns {*[]} <TodoTask/> with values from json
      */
     renderList = () => {
-        return this.state.taskList.map((item) => {
+        // return this.state.taskList.map((item) => {
+        return this.props.taskList.map((item) => {
             return (
                 <TodoTask key={item.id} id={item.id} title={item.text}/>
             );
@@ -95,14 +101,19 @@ class Todo extends React.Component {
  * @param state - state of store
  * @returns {{}}
  */
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+    taskList: state.taskListReducer.taskList
+});
 
 /**
  * Send action to store
  * @param dispatch - method for sending action
  * @returns {{}}
  */
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+    // send dispatch to action
+    getTaskList: bindActionCreators(getTaskList, dispatch)
+});
 
 /**
  * Connect component with store

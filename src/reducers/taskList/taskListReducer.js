@@ -9,9 +9,10 @@ const initialState = {
 };
 
 /**
- * Reducer for task list. Process data from store by action
+ * Reducer for task list. Process piece of data from store by action
  * @param state - global state for application
  * @param action - action with updates
+ * @return new object of redux store
  */
 export default (state = initialState, action) => {
     switch (action.type) {
