@@ -33,5 +33,5 @@ ReactDOM.render(
             </Base>
         </BrowserRouter>
     </Provider>,
-    document.getElementById('rootReducer')
+    document.getElementById('root')
 );
