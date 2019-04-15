@@ -30,6 +30,11 @@ class Todo extends React.Component {
         this.props.getTaskList("inbox");
     }
 
+    onClickChangeTaskStatus = (id) => {
+    };
+    onClickDeleteTask = () => {
+    };
+
     /**
      * Add new entered character to state
      * @param event - event of pressing on button
@@ -47,7 +52,6 @@ class Todo extends React.Component {
      */
     onSubmit = (event) => {
         event.preventDefault();
-        this.props.addNewTask({text: this.state.value}).then(this.props.getTaskList("inbox"));
 
         this.setState({
             // taskList: [
@@ -70,7 +74,11 @@ class Todo extends React.Component {
         // return this.state.taskList.map((item) => {
         return this.props.taskList.map((item) => {
             return (
-                <TodoTask key={item.id} id={item.id} title={item.text}/>
+                <TodoTask key={item.id}
+                          id={item.id}
+                          title={item.text}
+                          onClickChangeTaskStatus={this.onClickChangeTaskStatus(item.id)}
+                />
             );
         });
     };

@@ -18,14 +18,14 @@ export default class Task extends React.Component {
     };
 
     render() {
-        const {taskId, taskTitle, leftButtonClassName, editButton} = this.props;
+        const {taskId, taskTitle, leftButtonClassName, editButton, onClickChangeTaskStatus, onClickDeleteTask} = this.props;
 
         return (
             <article className="task">
                 <ProgressButton
                     id={taskId}
                     className={leftButtonClassName}
-                    onClick={this.onClick}
+                    onClick={onClickChangeTaskStatus}
                 />
 
                 <h3 className={"task__title"}>{taskTitle}</h3>
@@ -35,7 +35,7 @@ export default class Task extends React.Component {
                     <ToolButton
                         id={taskId}
                         className={"delete"}
-                        onClick={this.onClick}
+                        onClick={onClickDeleteTask}
                     />
                 </div>
             </article>
@@ -47,5 +47,8 @@ Task.propTypes = {
     taskId: PropTypes.string.isRequired,
     taskTitle: PropTypes.string.isRequired,
     leftButtonClassName: PropTypes.string.isRequired,
-    editButton: PropTypes.element
+    editButton: PropTypes.element,
+
+    onClickChangeTaskStatus: PropTypes.func,
+    onClickDeleteTask: PropTypes.func
 };

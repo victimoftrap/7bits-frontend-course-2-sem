@@ -16,7 +16,7 @@ export default class TodoTask extends React.Component {
     };
 
     render() {
-        const {id, title} = this.props;
+        const {id, title, onClickChangeTaskStatus, onClickDeleteTask} = this.props;
 
         return (
             <Task
@@ -30,6 +30,8 @@ export default class TodoTask extends React.Component {
                         onClick={this.onClick}
                     />
                 }
+                onClickChangeTaskStatus={onClickChangeTaskStatus}
+                onClickDeleteTask={onClickDeleteTask}
             />
         );
     };
@@ -38,5 +40,8 @@ export default class TodoTask extends React.Component {
 Task.propTypes = {
     id: PropTypes.string,
     title: PropTypes.string,
-    leftButtonClassName: PropTypes.element
+    leftButtonClassName: PropTypes.element,
+
+    onClickChangeTaskStatus: PropTypes.func,
+    onClickDeleteTask: PropTypes.func
 };

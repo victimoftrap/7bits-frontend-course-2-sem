@@ -8,13 +8,15 @@ import Task from "../base/Task";
  */
 export default class TodoTask extends React.Component {
     render() {
-        const {id, title} = this.props;
+        const {id, title, onClickDeleteTask} = this.props;
 
         return (
             <Task
                 leftButtonClassName={"done-button"}
                 taskId={id}
                 taskTitle={title}
+                onClickChangeTaskStatus={() => {}}
+                onClickDeleteTask={onClickDeleteTask}
             />
         );
     };
@@ -22,5 +24,7 @@ export default class TodoTask extends React.Component {
 
 Task.propTypes = {
     id: PropTypes.string,
-    title: PropTypes.string
+    title: PropTypes.string,
+
+    onClickDeleteTask: PropTypes.func
 };
