@@ -18,6 +18,7 @@ function checkStatus(response) {
 function buildRequest(requestMethod, body) {
     return {
         method: requestMethod,
+        mode: 'no-cors',
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -46,7 +47,7 @@ export function get(url) {
  */
 export function post(url, taskData) {
     return fetch(url, buildRequest('POST', JSON.stringify(taskData)))
-        .then(response => checkStatus(response))
+        .then(response => {console.log(response);checkStatus(response)})
         .catch(error => {
             return error;
         });

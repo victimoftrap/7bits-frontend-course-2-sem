@@ -2,13 +2,16 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
 
-import getTaskList from "../../actions/tasksList/getTaskList";
-
 import TodoTask from "../../components/task/todo/TodoTask";
 import TaskInputField from "../../components/form/field/TaskInputField";
 import CreateTaskButton from "../../components/buttons/create/CreateTaskButton";
 
 import './style.css';
+
+import getTaskList from "../../actions/tasksList/getTaskList";
+import addNewTask from "../../actions/tasksList/addNewTask";
+import updateTaskById from "../../actions/tasksList/updateTaskById";
+import removeTaskById from "../../actions/tasksList/removeTaskById";
 
 /**
  * Component-container for tasks with status "inbox". Container for main page
@@ -19,7 +22,7 @@ class Todo extends React.Component {
 
         this.state = {
             value: "",
-            taskList: []
+            // taskList: []
         };
     }
 
@@ -44,15 +47,17 @@ class Todo extends React.Component {
      */
     onSubmit = (event) => {
         event.preventDefault();
+        this.props.addNewTask({text: this.state.value}).then(this.props.getTaskList("inbox"));
+
         this.setState({
-            taskList: [
-                {
-                    id: "101",
-                    text: this.state.value,
-                    status: "inbox"
-                },
-                ...this.state.taskList
-            ],
+            // taskList: [
+            //     {
+            //         id: "101",
+            //         text: this.state.value,
+            //         status: "inbox"
+            //     },
+            //     ...this.state.taskList
+            // ],
             value: ""
         })
     };
@@ -112,9 +117,14 @@ const mapStateToProps = (state) => {
  * @param dispatch - method for sending action
  * @returns {{}}
  */
-const mapDispatchToProps = (dispatch) => ({
-    getTaskList: bindActionCreators(getTaskList, dispatch)
-});
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getTaskList: bindActionCreators(getTaskList, dispatch),
+        addNewTask: bindActionCreators(addNewTask, dispatch),
+        updateTaskById: bindActionCreators(updateTaskById, dispatch),
+        removeTaskById: bindActionCreators(removeTaskById, dispatch)
+    }
+};
 
 /**
  * Connect component with store

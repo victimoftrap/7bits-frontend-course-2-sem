@@ -2,11 +2,13 @@ import React from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
-import getTaskList from "../../actions/tasksList/getTaskList";
-
 import DoneTask from "../../components/task/done/DoneTask";
 
 import './style.css';
+
+import getTaskList from "../../actions/tasksList/getTaskList";
+import updateTaskById from "../../actions/tasksList/updateTaskById";
+import removeTaskById from "../../actions/tasksList/removeTaskById";
 
 /**
  * Component-container for tasks with status "done"
@@ -59,7 +61,9 @@ const mapStateToProps = (state) => {
  */
 const mapDispatchToProps = (dispatch) => {
     return {
-        getTaskList: bindActionCreators(getTaskList, dispatch)
+        getTaskList: bindActionCreators(getTaskList, dispatch),
+        updateTaskById: bindActionCreators(updateTaskById, dispatch),
+        removeTaskById: bindActionCreators(removeTaskById, dispatch)
     }
 };
 

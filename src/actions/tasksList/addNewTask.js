@@ -1,18 +1,22 @@
-import {get, post} from '../../fetcher/fetcher';
+import {post} from '../../fetcher/fetcher';
 
-import * as responseTypes from './actionTypes';
+import {ADD_TASK_ERROR, ADD_TASK_SUCCESS} from "./actionTypes";
 
+/**
+ * Create new task
+ * @param taskData - data for new task
+ */
 export default function addNewTask(taskData) {
     return dispatch => {
-        return post(url, taskData)
+        return post(`http://localhost:8080/tasks/`, taskData)
             .then((response) => {
                 dispatch({
-                    type: responseTypes.ADD_TASK_SUCCESS,
+                    type: ADD_TASK_SUCCESS,
                 })
             })
             .catch((error) => {
                 dispatch({
-                    type: responseTypes.ADD_TASK_ERROR,
+                    type: ADD_TASK_ERROR,
                     error: error
                 })
             })

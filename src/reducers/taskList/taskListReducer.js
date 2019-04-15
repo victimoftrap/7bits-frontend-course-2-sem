@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
         case responseTypes.GET_TASK_LIST_SUCCESS: {
             return {
                 ...state,
-                taskList: action.taskList,
+                taskList: action.taskList === undefined ? [] : action.taskList,
                 error: null
             }
         }
