@@ -19,7 +19,7 @@ class Todo extends React.Component {
 
         this.state = {
             value: "",
-            taskList: [] // list.data
+            taskList: []
         };
     }
 
@@ -101,9 +101,11 @@ class Todo extends React.Component {
  * @param state - state of store
  * @returns {{}}
  */
-const mapStateToProps = (state) => ({
-    taskList: state.taskListReducer.taskList
-});
+const mapStateToProps = (state) => {
+    return {
+        taskList: state.taskListReducer.taskList
+    }
+};
 
 /**
  * Send action to store
@@ -111,7 +113,6 @@ const mapStateToProps = (state) => ({
  * @returns {{}}
  */
 const mapDispatchToProps = (dispatch) => ({
-    // send dispatch to action
     getTaskList: bindActionCreators(getTaskList, dispatch)
 });
 

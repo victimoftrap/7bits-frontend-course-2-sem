@@ -46,18 +46,22 @@ class Done extends React.Component {
  * @param state - state of store
  * @returns {{}}
  */
-const mapStateToProps = (state) => ({
-    taskList: state.taskListReducer.taskList
-});
+const mapStateToProps = (state) => {
+    return {
+        taskList: state.taskListReducer.taskList
+    }
+};
 
 /**
  * Send action to store
  * @param dispatch - method for sending action
  * @returns {{}}
  */
-const mapDispatchToProps = (dispatch) => ({
-    getTaskList: bindActionCreators(getTaskList, dispatch)
-});
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getTaskList: bindActionCreators(getTaskList, dispatch)
+    }
+};
 
 /**
  * Connect component with store

@@ -1,6 +1,6 @@
 /**
  * Check status of server response
- * @param response
+ * @param response - response from server
  */
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
@@ -27,38 +27,14 @@ function buildRequest(requestMethod, body) {
 }
 
 /**
- * Get something from url
- * @param url url for making request
+ * Get task from url
+ * @param url - url for making request
  */
 export function get(url) {
-    return fetch(url, buildRequest('GET', ''))
+    return fetch(url, buildRequest('GET', null))
         .then(response => checkStatus(response))
         .then(response => response.json())
         .catch(error => {
             return error;
-        });
-}
-
-export function post(url, taskData) {
-    return fetch(url, buildRequest('POST', JSON.stringify(taskData)))
-        .then(response => checkStatus(response))
-        .catch(error => {
-            return error;
-        });
-}
-
-export function remove(url) {
-    return fetch(url, buildRequest('DELETE', ''))
-        .then(response => checkStatus(response))
-        .catch(error => {
-            return error
-        });
-}
-
-export function patch(url) {
-    return fetch(url, buildRequest('PATCH', ''))
-        .then(response => checkStatus(response))
-        .catch(error => {
-            return error
         });
 }
