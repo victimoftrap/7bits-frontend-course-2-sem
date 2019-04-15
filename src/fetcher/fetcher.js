@@ -38,3 +38,41 @@ export function get(url) {
             return error;
         });
 }
+
+/**
+ * Create new task
+ * @param url - url to the server
+ * @param taskData - data of new task
+ */
+export function post(url, taskData) {
+    return fetch(url, buildRequest('POST', JSON.stringify(taskData)))
+        .then(response => checkStatus(response))
+        .catch(error => {
+            return error;
+        });
+}
+
+/**
+ * Remove task
+ * @param url - url to task, that would be deleted
+ */
+export function remove(url) {
+    return fetch(url, buildRequest('DELETE', null))
+        .then(response => checkStatus(response))
+        .catch(error => {
+            return error
+        });
+}
+
+/**
+ * Update task
+ * @param url - url to task, that would be updated
+ * @param updatedTask - data of updated task
+ */
+export function patch(url, updatedTask) {
+    return fetch(url, buildRequest('PATCH', JSON.stringify(updatedTask)))
+        .then(response => checkStatus(response))
+        .catch(error => {
+            return error
+        });
+}
