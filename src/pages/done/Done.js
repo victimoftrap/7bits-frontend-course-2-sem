@@ -19,13 +19,40 @@ class Done extends React.Component {
     }
 
     /**
+     * Change task status handler
+     * @param id - ID of a task
+     */
+    onClickChangeTaskStatus = (id) => {
+        this.props.updateTaskById(id)
+            .then(
+                this.props.getTaskList("done")
+            );
+    };
+    /**
+     * Delete task handler
+     * @param id - ID of a task
+     */
+    onClickDeleteTask = (id) => {
+        this.props.removeTaskById(id)
+            .then(
+                this.props.getTaskList("done")
+            );
+    };
+
+    /**
      * Convert values from json to list of <DoneTask/> tags
      * @returns {*}
      */
     renderList = () => {
         return this.props.taskList.map((item) => {
             return (
-                <DoneTask key={item.id} id={item.id} title={item.text}/>
+                <DoneTask
+                    key={item.id}
+                    id={item.id}
+                    title={item.text}
+                    onClickChangeTaskStatus={this.onClickChangeTaskStatus(item.id)}
+                    onClickDeleteTask={this.onClickDeleteTask(item.id)}
+                />
             );
         });
     };

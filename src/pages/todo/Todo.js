@@ -30,9 +30,25 @@ class Todo extends React.Component {
         this.props.getTaskList("inbox");
     }
 
+    /**
+     * Change task status handler
+     * @param id - ID of a task
+     */
     onClickChangeTaskStatus = (id) => {
+        this.props.updateTaskById(id)
+            .then(
+                this.props.getTaskList("inbox")
+            );
     };
-    onClickDeleteTask = () => {
+    /**
+     * Delete task handler
+     * @param id - ID of a task
+     */
+    onClickDeleteTask = (id) => {
+        this.props.removeTaskById(id)
+            .then(
+                this.props.getTaskList("inbox")
+            );
     };
 
     /**
@@ -52,6 +68,9 @@ class Todo extends React.Component {
      */
     onSubmit = (event) => {
         event.preventDefault();
+        this.props.addNewTask({
+            text: event.target.value
+        }).then(this.props.getTaskList("inbox"));
 
         this.setState({
             // taskList: [
@@ -71,13 +90,13 @@ class Todo extends React.Component {
      * @returns {*[]} <TodoTask/> with values from json
      */
     renderList = () => {
-        // return this.state.taskList.map((item) => {
         return this.props.taskList.map((item) => {
             return (
                 <TodoTask key={item.id}
                           id={item.id}
                           title={item.text}
                           onClickChangeTaskStatus={this.onClickChangeTaskStatus(item.id)}
+                          onClickDeleteTask={this.onClickDeleteTask(item.id)}
                 />
             );
         });
