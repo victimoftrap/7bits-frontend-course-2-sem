@@ -8,7 +8,7 @@ import {ADD_TASK_ERROR, ADD_TASK_SUCCESS} from "./actionTypes";
  */
 export default function addNewTask(taskData) {
     return dispatch => {
-        return post(`http://localhost:8080/tasks/`, taskData)
+        return post(`http://localhost:80/tasks/`, taskData)
             .then((response) => {
                 dispatch({
                     type: ADD_TASK_SUCCESS,
