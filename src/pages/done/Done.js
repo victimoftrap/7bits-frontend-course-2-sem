@@ -25,7 +25,7 @@ class Done extends React.Component {
     onClickChangeTaskStatus = (id) => {
         this.props.updateTaskById(id)
             .then(
-                this.props.getTaskList("done")
+                () => this.props.getTaskList("done")
             );
     };
     /**
@@ -35,7 +35,7 @@ class Done extends React.Component {
     onClickDeleteTask = (id) => {
         this.props.removeTaskById(id)
             .then(
-                this.props.getTaskList("done")
+                () => this.props.getTaskList("done")
             );
     };
 
@@ -50,8 +50,12 @@ class Done extends React.Component {
                     key={item.id}
                     id={item.id}
                     title={item.text}
-                    onClickChangeTaskStatus={this.onClickChangeTaskStatus(item.id)}
-                    onClickDeleteTask={this.onClickDeleteTask(item.id)}
+                    onClickChangeTaskStatus={
+                        () => this.onClickChangeTaskStatus(item.id)
+                    }
+                    onClickDeleteTask={
+                        () => this.onClickDeleteTask(item.id)
+                    }
                 />
             );
         });

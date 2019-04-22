@@ -21,8 +21,7 @@ class Todo extends React.Component {
         super(props);
 
         this.state = {
-            value: "",
-            // taskList: []
+            value: ""
         };
     }
 
@@ -35,9 +34,11 @@ class Todo extends React.Component {
      * @param id - ID of a task
      */
     onClickChangeTaskStatus = (id) => {
-        this.props.updateTaskById(id)
+        this.props.updateTaskById(id, {
+            status: "done"
+        })
             .then(
-                this.props.getTaskList("inbox")
+                () => this.props.getTaskList("inbox")
             );
     };
     /**
@@ -47,7 +48,7 @@ class Todo extends React.Component {
     onClickDeleteTask = (id) => {
         this.props.removeTaskById(id)
             .then(
-                this.props.getTaskList("inbox")
+                () => this.props.getTaskList("inbox")
             );
     };
 
@@ -68,19 +69,14 @@ class Todo extends React.Component {
      */
     onSubmit = (event) => {
         event.preventDefault();
+
         this.props.addNewTask({
-            text: event.target.value
-        }).then(this.props.getTaskList("inbox"));
+            text: this.state.value
+        }).then(
+            () => this.props.getTaskList("inbox")
+        );
 
         this.setState({
-            // taskList: [
-            //     {
-            //         id: "101",
-            //         text: this.state.value,
-            //         status: "inbox"
-            //     },
-            //     ...this.state.taskList
-            // ],
             value: ""
         })
     };
@@ -95,8 +91,12 @@ class Todo extends React.Component {
                 <TodoTask key={item.id}
                           id={item.id}
                           title={item.text}
-                          onClickChangeTaskStatus={this.onClickChangeTaskStatus(item.id)}
-                          onClickDeleteTask={this.onClickDeleteTask(item.id)}
+                          onClickChangeTaskStatus={
+                              () => this.onClickChangeTaskStatus(item.id)
+                          }
+                          onClickDeleteTask={
+                              () => this.onClickDeleteTask(item.id)
+                          }
                 />
             );
         });

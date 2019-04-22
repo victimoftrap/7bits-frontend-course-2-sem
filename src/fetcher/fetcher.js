@@ -32,9 +32,11 @@ function buildRequest(requestMethod, body) {
  */
 export function get(url) {
     return fetch(url, buildRequest('GET', null))
-        .then(response => checkStatus(response))
         .then(response => {
-            response.json()
+            return checkStatus(response)
+        })
+        .then(response => {
+            return response.json()
         })
         .catch(error => {
             return error;
@@ -48,7 +50,9 @@ export function get(url) {
  */
 export function post(url, taskData) {
     return fetch(url, buildRequest('POST', JSON.stringify(taskData)))
-        .then(response => {console.log(response);checkStatus(response)})
+        .then(response => {
+            return checkStatus(response)
+        })
         .catch(error => {
             return error;
         });
@@ -60,7 +64,9 @@ export function post(url, taskData) {
  */
 export function remove(url) {
     return fetch(url, buildRequest('DELETE', null))
-        .then(response => checkStatus(response))
+        .then(response => {
+            return checkStatus(response)
+        })
         .catch(error => {
             return error
         });
@@ -73,7 +79,9 @@ export function remove(url) {
  */
 export function patch(url, updatedTask) {
     return fetch(url, buildRequest('PATCH', JSON.stringify(updatedTask)))
-        .then(response => checkStatus(response))
+        .then(response => {
+            return checkStatus(response)
+        })
         .catch(error => {
             return error
         });

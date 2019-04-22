@@ -9,7 +9,7 @@ import {UPDATE_TASK_ERROR, UPDATE_TASK_SUCCESS} from "./actionTypes";
  */
 export default function updateTaskById(id, updatedTask) {
     return dispatch => {
-        return patch(`http://localhost:80/tasks/${id}`, updatedTask)
+        return patch(`/api/tasks/${id}`, updatedTask)
             .then((response) => {
                 dispatch({
                     type: UPDATE_TASK_SUCCESS
