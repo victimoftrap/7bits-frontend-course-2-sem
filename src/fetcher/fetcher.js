@@ -9,6 +9,8 @@ function checkStatus(response) {
     throw new Error(response.statusText);
 }
 
+localStorage.setItem("jwt-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMTI2NjQ3NjY1IiwibmFtZSI6IlJhbW9uYSBGbG93ZXJzIiwiaWF0IjoxNTE2MjM5MDIyfQ.TkVtBEpdqxzuHn1VCSiMreJniYxw9PHfy09_b0buP7k");
+
 /**
  * Build request to server
  * @param requestMethod - http method name
@@ -16,11 +18,13 @@ function checkStatus(response) {
  * @returns request
  */
 function buildRequest(requestMethod, body) {
+    const token = localStorage.getItem("jwt-token");
     return {
         method: requestMethod,
         headers: new Headers({
             "Accept": "application/json",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
         }),
         body: body
     };
