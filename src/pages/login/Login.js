@@ -41,22 +41,22 @@ class Login extends React.Component {
                 onSubmit={this.handleSubmit}
             >
                 <input
-                    className={"login-form__field login"}
+                    className={"login-form__field"}
                     name={"login"}
-                    placeholder={"login"}
+                    placeholder={"E-mail"}
                 />
                 <input
-                    className={"login-form__field password"}
+                    className={"login-form__field"}
                     name={"password"}
-                    placeholder={"password"}
+                    placeholder={"Password"}
                     type={"password"}
 
                 />
                 <button
-                    className={"login-form__button"}
+                    className={"login-form__button login-button"}
                     type={"submit"}
                     disabled={false}
-                >Authorize</button>
+                >Log in</button>
             </form>
         );
     };
