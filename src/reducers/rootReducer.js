@@ -1,5 +1,6 @@
 import {combineReducers} from 'redux';
 
+import userReducer from "./user/userReducer";
 import taskListReducer from './taskList/taskListReducer';
 
 /**
@@ -9,6 +10,7 @@ import taskListReducer from './taskList/taskListReducer';
  */
 export default (state = {}, action) => {
     return combineReducers({
-        taskListReducer
+        taskListReducer,
+        userReducer
     })(state, action)
 };

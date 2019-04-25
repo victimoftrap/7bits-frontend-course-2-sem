@@ -12,6 +12,7 @@ import getTaskList from "../../actions/tasksList/getTaskList";
 import addNewTask from "../../actions/tasksList/addNewTask";
 import updateTaskById from "../../actions/tasksList/updateTaskById";
 import removeTaskById from "../../actions/tasksList/removeTaskById";
+import whoami from "../../actions/user/whoami";
 
 /**
  * Component-container for tasks with status "inbox". Container for main page
@@ -26,7 +27,18 @@ class Todo extends React.Component {
     }
 
     componentDidMount() {
+        if (!this.props.isAuthorized) {
+            this.props.history.replace('/login');
+        }
+
+        this.props.whoami();
         this.props.getTaskList("inbox");
+    }
+
+    componentDidUpdate() {
+        if (!this.props.isAuthorized) {
+            this.props.history.replace('/login');
+        }
     }
 
     /**
@@ -135,7 +147,8 @@ class Todo extends React.Component {
  */
 const mapStateToProps = (state) => {
     return {
-        taskList: state.taskListReducer.taskList
+        taskList: state.taskListReducer.taskList,
+        isAuthorized: state.userReducer.isAuthorized
     }
 };
 
@@ -149,7 +162,8 @@ const mapDispatchToProps = (dispatch) => {
         getTaskList: bindActionCreators(getTaskList, dispatch),
         addNewTask: bindActionCreators(addNewTask, dispatch),
         updateTaskById: bindActionCreators(updateTaskById, dispatch),
-        removeTaskById: bindActionCreators(removeTaskById, dispatch)
+        removeTaskById: bindActionCreators(removeTaskById, dispatch),
+        whoami: bindActionCreators(whoami, dispatch)
     }
 };
 

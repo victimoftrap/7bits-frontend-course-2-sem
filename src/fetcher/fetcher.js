@@ -9,7 +9,7 @@ function checkStatus(response) {
     throw new Error(response.statusText);
 }
 
-localStorage.setItem("jwt-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMTI2NjQ3NjY1IiwibmFtZSI6IlJhbW9uYSBGbG93ZXJzIiwiaWF0IjoxNTE2MjM5MDIyfQ.TkVtBEpdqxzuHn1VCSiMreJniYxw9PHfy09_b0buP7k");
+// localStorage.setItem("jwt-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMTI2NjQ3NjY1IiwibmFtZSI6IlJhbW9uYSBGbG93ZXJzIiwiaWF0IjoxNTE2MjM5MDIyfQ.TkVtBEpdqxzuHn1VCSiMreJniYxw9PHfy09_b0buP7k");
 
 /**
  * Build request to server
@@ -56,6 +56,9 @@ export function post(url, taskData) {
     return fetch(url, buildRequest('POST', JSON.stringify(taskData)))
         .then(response => {
             return checkStatus(response)
+        })
+        .then(response => {
+            return response.json()
         })
         .catch(error => {
             return error;

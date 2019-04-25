@@ -2,26 +2,35 @@ import React from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
+import './style.css';
+
+import login from "../../actions/user/login";
+
 class Login extends React.Component {
     checkAuthorized = () => {
-        if (this.props.authorized) {
+        if (this.props.isAuthorized) {
             this.props.history.replace('/');
         }
     };
 
     componentDidMount() {
-        this.checkAuthorized();
+        if (this.props.isAuthorized) {
+            this.props.history.replace('/');
+        }
     }
 
     componentDidUpdate() {
-        this.checkAuthorized();
+        if (this.props.isAuthorized) {
+            this.props.history.replace('/');
+        }
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
 
-        const username = event.target['username'].value;
+        const username = event.target['login'].value;
         const password = event.target['password'].value;
+
         this.props.login(username, password);
     };
 
@@ -32,12 +41,12 @@ class Login extends React.Component {
                 onSubmit={this.handleSubmit}
             >
                 <input
-                    className={"login-form__field"}
+                    className={"login-form__field login"}
                     name={"login"}
                     placeholder={"login"}
                 />
                 <input
-                    className={"login-form__field"}
+                    className={"login-form__field password"}
                     name={"password"}
                     placeholder={"password"}
                     type={"password"}
@@ -46,8 +55,8 @@ class Login extends React.Component {
                 <button
                     className={"login-form__button"}
                     type={"submit"}
-                    value={"Authorize"}
-                />
+                    disabled={false}
+                >Authorize</button>
             </form>
         );
     };
@@ -55,13 +64,13 @@ class Login extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        login: bindActionCreators(login, dispatch)
+        isAuthorized: state.userReducer.isAuthorized
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        authorized: state.userReducer.authorized
+        login: bindActionCreators(login, dispatch)
     };
 };
 

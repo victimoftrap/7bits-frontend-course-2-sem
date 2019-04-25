@@ -4,11 +4,14 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {Provider} from 'react-redux';
 
 import Base from './layouts/base/Base';
+import PlainLayout from "./layouts/plain/PlainLayout";
+
 import Todo from './pages/todo/Todo';
 import Done from './pages/done/Done';
 import Login from './pages/login/Login';
 
 import store from './store/store';
+
 import './index.css';
 
 /**
@@ -21,9 +24,9 @@ ReactDOM.render(
             <Switch>
                 <Route path="/login" render={() => {
                     return (
-                        // layout
-                        <Route exact path="/login" component={Login}/>
-                        // layout
+                        <PlainLayout>
+                            <Route exact path="/login" component={Login}/>
+                        </PlainLayout>
                     )
                 }}/>
 
