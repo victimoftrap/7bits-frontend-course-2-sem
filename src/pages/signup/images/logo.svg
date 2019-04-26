@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 207 42" width="207" height="42">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M-578 -103L788 -103L788 567L-578 567Z" />
+		</clipPath>
+		<image width="208" height="43" id="img1" href="data:image/png;base64,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"/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<g id="sign up (desktop) " clip-path="url(#cp1)">
+		<g id="sign up (desktop) ">
+			<g id="Form">
+				<use id="logo_ hor" href="#img1" transform="matrix(1,0,0,1,0,0)"/>
+			</g>
+		</g>
+	</g>
+</svg>

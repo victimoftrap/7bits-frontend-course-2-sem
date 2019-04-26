@@ -1,0 +1,28 @@
+.form-input {
+    max-width: 300px;
+    width: 100%;
+    height: 30px;
+
+    font-size: 17px;
+    color: #626262;
+    font-weight: 400;
+
+    border-style: none;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #626262;
+}
+
+.email-field:invalid {
+    color: #fd5a6f;
+    border-bottom-color: #fd5a6f;
+}
+
+.password-field:placeholder-shown {
+    color: #626262;
+    border-bottom-color: #626262;
+}
+
+.password-field:not(:placeholder-shown) {
+    color: #fd5a6f;
+    border-bottom-color: #fd5a6f;
+}

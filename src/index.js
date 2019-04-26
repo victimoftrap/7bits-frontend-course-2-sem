@@ -10,6 +10,7 @@ import * as URLS from "./pages/sitePageUrls";
 import Todo from './pages/todo/Todo';
 import Done from './pages/done/Done';
 import Login from './pages/login/Login';
+import SignUp from './pages/signup/SignUp';
 
 import store from './store/store';
 
@@ -27,6 +28,14 @@ ReactDOM.render(
                     return (
                         <PlainLayout>
                             <Route exact path={URLS.SIGN_IN_PAGE} component={Login}/>
+                        </PlainLayout>
+                    )
+                }}/>
+
+                <Route path={URLS.SIGN_UP_PAGE} render={() => {
+                    return (
+                        <PlainLayout>
+                            <Route exact path={URLS.SIGN_UP_PAGE} component={SignUp}/>
                         </PlainLayout>
                     )
                 }}/>

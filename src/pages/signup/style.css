@@ -1,0 +1,53 @@
+body {
+    background: url("./images/background.png") no-repeat bottom center fixed;
+    background-size: contain;
+}
+
+.sign-up-form {
+    font-family: Roboto, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sign-up-form__site-logo {
+    margin-bottom: 50px;
+}
+
+.sign-up-form__button {
+    width: 300px;
+    height: 40px;
+}
+
+.sign-up-form__checkbox {
+    width: 12px;
+    height: 12px;
+}
+
+.already-registered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    font-size: 13px;
+    font-family: Roboto, sans-serif;
+}
+
+.already-registered__title {
+    margin-top: 40px;
+    margin-bottom: 0;
+    color: #878787;
+}
+
+.already-registered__redirect {
+    color: #626262;
+    text-align: center;
+    text-decoration: none;
+}

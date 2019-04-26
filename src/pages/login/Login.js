@@ -46,6 +46,7 @@ class Login extends React.Component {
                     className={"login-form__field"}
                     name={"username"}
                     placeholder={"E-mail"}
+                    type={"email"}
                 />
                 <input
                     className={"login-form__field"}
