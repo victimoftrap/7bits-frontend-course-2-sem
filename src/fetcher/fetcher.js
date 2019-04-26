@@ -9,8 +9,6 @@ function checkStatus(response) {
     throw new Error(response.statusText);
 }
 
-// localStorage.setItem("jwt-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMTI2NjQ3NjY1IiwibmFtZSI6IlJhbW9uYSBGbG93ZXJzIiwiaWF0IjoxNTE2MjM5MDIyfQ.TkVtBEpdqxzuHn1VCSiMreJniYxw9PHfy09_b0buP7k");
-
 /**
  * Build request to server
  * @param requestMethod - http method name
@@ -31,7 +29,7 @@ function buildRequest(requestMethod, body) {
 }
 
 /**
- * Get task from url
+ * Do GET request
  * @param url - url for making request
  */
 export function get(url) {
@@ -48,7 +46,7 @@ export function get(url) {
 }
 
 /**
- * Create new task
+ * Do POST request
  * @param url - url to the server
  * @param taskData - data of new task
  */
@@ -66,7 +64,7 @@ export function post(url, taskData) {
 }
 
 /**
- * Remove task
+ * Do DELETE request
  * @param url - url to task, that would be deleted
  */
 export function remove(url) {
@@ -80,7 +78,7 @@ export function remove(url) {
 }
 
 /**
- * Update task
+ * Do PATCH request
  * @param url - url to task, that would be updated
  * @param updatedTask - data of updated task
  */
@@ -92,4 +90,26 @@ export function patch(url, updatedTask) {
         .catch(error => {
             return error
         });
+}
+
+/**
+ * Do POST request with user data
+ * @param url - url to the server
+ * @param userData - request object with username and password
+ */
+export function postUserData(url, userData) {
+    return fetch(url, {
+        method: 'POST',
+        headers: new Headers({
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        }),
+        body: JSON.stringify(userData)
+    }).then(response => {
+        return checkStatus(response);
+    }).then(response => {
+        return response.json();
+    }).catch(error => {
+        return error;
+    })
 }

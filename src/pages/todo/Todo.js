@@ -5,6 +5,7 @@ import {bindActionCreators} from "redux";
 import TodoTask from "../../components/task/todo/TodoTask";
 import TaskInputField from "../../components/form/field/TaskInputField";
 import CreateTaskButton from "../../components/buttons/create/CreateTaskButton";
+import * as URLS from "../sitePageUrls";
 
 import './style.css';
 
@@ -28,7 +29,7 @@ class Todo extends React.Component {
 
     componentDidMount() {
         if (!this.props.isAuthorized) {
-            this.props.history.replace('/login');
+            this.props.history.replace(URLS.SIGN_IN_PAGE);
         }
 
         this.props.whoami();
@@ -37,7 +38,7 @@ class Todo extends React.Component {
 
     componentDidUpdate() {
         if (!this.props.isAuthorized) {
-            this.props.history.replace('/login');
+            this.props.history.replace(URLS.SIGN_IN_PAGE);
         }
     }
 

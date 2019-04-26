@@ -1,17 +1,20 @@
-import {post} from "../../fetcher/fetcher";
+import {postUserData} from "../../fetcher/fetcher";
 
 import {AUTHORIZE_FAIL, AUTHORIZE_SUCCESS} from "./actionTypes";
 
-export default function login(login, password) {
+export default function signIn(username, password) {
     return dispatch => {
-        const authData = {
-            login: login,
+        return postUserData('/api/signin', {
+            username: username,
             password: password
-        };
-
-        return post('/api/signin', authData)
+        })
             .then((response) => {
-                localStorage.setItem("jwt-token", response.token);
+                const token = response.token;
+                if (token === undefined) {
+                    throw new Error("Not signed in");
+                }
+
+                localStorage.setItem("jwt-token", token);
                 dispatch({
                     type: AUTHORIZE_SUCCESS
                 })

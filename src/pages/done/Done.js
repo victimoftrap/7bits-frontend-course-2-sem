@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
 import DoneTask from "../../components/task/done/DoneTask";
+import * as URLS from "../sitePageUrls";
 
 import './style.css';
 
@@ -17,7 +18,7 @@ import whoami from "../../actions/user/whoami";
 class Done extends React.Component {
     componentDidMount() {
         if (!this.props.isAuthorized) {
-            this.props.history.replace('/login');
+            this.props.history.replace(URLS.SIGN_IN_PAGE);
         }
 
         this.props.whoami();

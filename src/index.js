@@ -6,6 +6,7 @@ import {Provider} from 'react-redux';
 import Base from './layouts/base/Base';
 import PlainLayout from "./layouts/plain/PlainLayout";
 
+import * as URLS from "./pages/sitePageUrls";
 import Todo from './pages/todo/Todo';
 import Done from './pages/done/Done';
 import Login from './pages/login/Login';
@@ -22,19 +23,19 @@ ReactDOM.render(
 
         <BrowserRouter>
             <Switch>
-                <Route path="/login" render={() => {
+                <Route path={URLS.SIGN_IN_PAGE} render={() => {
                     return (
                         <PlainLayout>
-                            <Route exact path="/login" component={Login}/>
+                            <Route exact path={URLS.SIGN_IN_PAGE} component={Login}/>
                         </PlainLayout>
                     )
                 }}/>
 
-                <Route path={"/"} render={() => {
+                <Route path={URLS.MAIN_TODO_TASKS_PAGE} render={() => {
                     return (
                         <Base>
-                            <Route exact path='/' component={Todo}/>
-                            <Route path='/done' component={Done}/>
+                            <Route exact path={URLS.MAIN_TODO_TASKS_PAGE} component={Todo}/>
+                            <Route path={URLS.DONE_TASKS_PAGE} component={Done}/>
                         </Base>
                     )
                 }}/>

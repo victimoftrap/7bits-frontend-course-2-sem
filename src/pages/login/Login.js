@@ -2,33 +2,35 @@ import React from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
+import * as URLS from "../sitePageUrls";
+
 import './style.css';
 
-import login from "../../actions/user/login";
+import signIn from "../../actions/user/signIn";
 
 class Login extends React.Component {
     checkAuthorized = () => {
         if (this.props.isAuthorized) {
-            this.props.history.replace('/');
+            this.props.history.replace(URLS.MAIN_TODO_TASKS_PAGE);
         }
     };
 
     componentDidMount() {
         if (this.props.isAuthorized) {
-            this.props.history.replace('/');
+            this.props.history.replace(URLS.MAIN_TODO_TASKS_PAGE);
         }
     }
 
     componentDidUpdate() {
         if (this.props.isAuthorized) {
-            this.props.history.replace('/');
+            this.props.history.replace(URLS.MAIN_TODO_TASKS_PAGE);
         }
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
 
-        const username = event.target['login'].value;
+        const username = event.target['username'].value;
         const password = event.target['password'].value;
 
         this.props.login(username, password);
@@ -42,7 +44,7 @@ class Login extends React.Component {
             >
                 <input
                     className={"login-form__field"}
-                    name={"login"}
+                    name={"username"}
                     placeholder={"E-mail"}
                 />
                 <input
@@ -70,7 +72,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        login: bindActionCreators(login, dispatch)
+        login: bindActionCreators(signIn, dispatch)
     };
 };
 
