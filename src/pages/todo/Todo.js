@@ -9,10 +9,10 @@ import * as URLS from "../sitePageUrls";
 
 import './style.css';
 
-import getTaskList from "../../actions/tasksList/getTaskList";
-import addNewTask from "../../actions/tasksList/addNewTask";
-import updateTaskById from "../../actions/tasksList/updateTaskById";
-import removeTaskById from "../../actions/tasksList/removeTaskById";
+import getTaskList from "../../actions/tasks/getTaskList";
+import addNewTask from "../../actions/tasks/addNewTask";
+import updateTaskById from "../../actions/tasks/updateTaskById";
+import removeTaskById from "../../actions/tasks/removeTaskById";
 import whoami from "../../actions/user/whoami";
 
 /**
@@ -99,7 +99,7 @@ class Todo extends React.Component {
      * @returns {*[]} <TodoTask/> with values from json
      */
     renderList = () => {
-        return this.props.taskList.map((item) => {
+        return this.props.tasks.map((item) => {
             return (
                 <TodoTask key={item.id}
                           id={item.id}
@@ -148,7 +148,7 @@ class Todo extends React.Component {
  */
 const mapStateToProps = (state) => {
     return {
-        taskList: state.taskListReducer.taskList,
+        tasks: state.taskListReducer.tasks,
         isAuthorized: state.userReducer.isAuthorized
     }
 };

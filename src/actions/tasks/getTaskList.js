@@ -12,7 +12,7 @@ export default function getTaskList(status) {
             .then(response => {
                 dispatch({
                     type: GET_TASK_LIST_SUCCESS,
-                    taskList: response.taskList
+                    tasks: response.tasks
                 })
             })
             .catch(error => {

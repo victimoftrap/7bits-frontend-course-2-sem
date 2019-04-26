@@ -7,9 +7,9 @@ import * as URLS from "../sitePageUrls";
 
 import './style.css';
 
-import getTaskList from "../../actions/tasksList/getTaskList";
-import updateTaskById from "../../actions/tasksList/updateTaskById";
-import removeTaskById from "../../actions/tasksList/removeTaskById";
+import getTaskList from "../../actions/tasks/getTaskList";
+import updateTaskById from "../../actions/tasks/updateTaskById";
+import removeTaskById from "../../actions/tasks/removeTaskById";
 import whoami from "../../actions/user/whoami";
 
 /**
@@ -51,7 +51,7 @@ class Done extends React.Component {
      * @returns {*}
      */
     renderList = () => {
-        return this.props.taskList.map((item) => {
+        return this.props.tasks.map((item) => {
             return (
                 <DoneTask
                     key={item.id}
@@ -88,7 +88,7 @@ class Done extends React.Component {
  */
 const mapStateToProps = (state) => {
     return {
-        taskList: state.taskListReducer.taskList,
+        tasks: state.taskListReducer.tasks,
         isAuthorized: state.userReducer.isAuthorized
     }
 };

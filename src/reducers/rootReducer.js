@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 
 import userReducer from "./user/userReducer";
-import taskListReducer from './taskList/taskListReducer';
+import taskListReducer from './tasks/tasksReducer';
 
 /**
  * Make root reducer from separated reducers. Call created reducers with requested params.

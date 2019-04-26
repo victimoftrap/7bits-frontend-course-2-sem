@@ -1,10 +1,10 @@
-import * as responseTypes from '../../actions/tasksList/actionTypes';
+import * as responseTypes from '../../actions/tasks/actionTypes';
 
 /**
  * Initial state for global store's state
  */
 const initialState = {
-    taskList: [],
+    tasks: [],
     error: null
 };
 
@@ -19,14 +19,14 @@ export default (state = initialState, action) => {
         case responseTypes.GET_TASK_LIST_SUCCESS: {
             return {
                 ...state,
-                taskList: action.taskList === undefined ? [] : action.taskList,
+                tasks: action.tasks === undefined ? [] : action.tasks,
                 error: null
             }
         }
         case responseTypes.GET_TASK_LIST_ERROR: {
             return {
                 ...state,
-                taskList: [],
+                tasks: [],
                 error: action.error
             }
         }
