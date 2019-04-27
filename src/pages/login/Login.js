@@ -5,10 +5,22 @@ import {bindActionCreators} from "redux";
 import * as URLS from "../sitePageUrls";
 
 import './style.css';
+import siteLogo from './images/logo.png';
 
 import signIn from "../../actions/user/signIn";
+import FormInput from "../../components/formInput/FormInput";
+import Button from "../../components/button/Button";
 
 class Login extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            email: "",
+            password: ""
+        };
+    }
+
     checkAuthorized = () => {
         if (this.props.isAuthorized) {
             this.props.history.replace(URLS.MAIN_TODO_TASKS_PAGE);
@@ -27,39 +39,93 @@ class Login extends React.Component {
         }
     }
 
-    handleSubmit = (event) => {
+    /**
+     * Add new entered character into email field
+     * @param event - event of pressing on button
+     */
+    onEmailChange = (event) => {
+        this.setState({
+                email: event.target.value
+            }
+        );
+    };
+
+    /**
+     * Add new entered character into password field
+     * @param event - event of pressing on button
+     */
+    onPasswordChange = (event) => {
+        this.setState({
+                password: event.target.value
+            }
+        );
+    };
+
+    /**
+     * Check are all fields in form filled
+     * @returns {boolean} - false if some field are empty
+     */
+    formFilled = () => {
+        return this.state.email.length !== 0
+            && this.state.password.length !== 0;
+    };
+
+    /**
+     * Register new user
+     * @param event - event of submitting form
+     */
+    onLoginSubmit = (event) => {
         event.preventDefault();
 
-        const username = event.target['username'].value;
-        const password = event.target['password'].value;
+        const email = this.state.email;
+        const password = this.state.password;
+        this.setState({
+            email: "",
+            password: ""
+        });
 
-        this.props.login(username, password);
+        this.props.login(email, password);
     };
 
     render() {
         return (
             <form
                 className={"login-form"}
-                onSubmit={this.handleSubmit}
+                onSubmit={this.onLoginSubmit}
             >
-                <input
+                <img
+                    className={"login-form__site-logo"}
+                    src={siteLogo}
+                    alt={"Eise Tasks"}
+                />
+                <FormInput
                     className={"login-form__field"}
                     name={"username"}
                     placeholder={"E-mail"}
-                    type={"email"}
+                    onChange={this.onEmailChange}
                 />
-                <input
+                <FormInput
                     className={"login-form__field"}
                     name={"password"}
                     placeholder={"Password"}
                     type={"password"}
-
+                    onChange={this.onPasswordChange}
                 />
-                <button
-                    className={"login-form__button login-button"}
+                <Button
+                    className={"login-form__button button"}
                     type={"submit"}
-                    disabled={false}
-                >Log in</button>
+                    disabled={!this.formFilled()}
+                    value={"Log in"}
+                />
+
+                <section className={"login-form__not-registered not-registered"}>
+                    <p className={"not-registered__title"}
+                    >Don't have an account?</p>
+
+                    <a className={"not-registered__redirect"}
+                       href={URLS.SIGN_UP_PAGE}
+                    >Sign up</a>
+                </section>
             </form>
         );
     };

@@ -113,6 +113,17 @@ class SignUp extends React.Component {
                     type={"password"}
                     onChange={this.onPasswordChange}
                 />
+
+                <section className={"sign-up-form__agreement agreement"}>
+                    <input
+                        className={"agreement__button"}
+                        type={"checkbox"}
+                    />
+                    <label className={"agreement__title"}>
+                        I agree to processing of personal data
+                    </label>
+                </section>
+
                 <Button
                     className={"sign-up-form__button button"}
                     value={"Sign up"}
@@ -120,14 +131,14 @@ class SignUp extends React.Component {
                     disabled={!this.formFilled()}
                 />
 
-                <article className={"sign-up-form__already-registered already-registered"}>
+                <section className={"sign-up-form__already-registered already-registered"}>
                     <p className={"already-registered__title"}
-                    >Don't have an account?</p>
+                    >Have an account?</p>
 
                     <a className={"already-registered__redirect"}
                        href={URLS.SIGN_IN_PAGE}
                     >Log in</a>
-                </article>
+                </section>
             </form>
         );
     }

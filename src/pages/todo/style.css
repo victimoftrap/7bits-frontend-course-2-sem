@@ -1,3 +1,7 @@
+body {
+    background-image: unset;
+}
+
 .main__content {
     flex-grow: 1;
     box-sizing: border-box;
