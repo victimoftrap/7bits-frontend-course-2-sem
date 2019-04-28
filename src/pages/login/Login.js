@@ -10,13 +10,14 @@ import siteLogo from './images/logo.png';
 import signIn from "../../actions/user/signIn";
 import FormInput from "../../components/formInput/FormInput";
 import Button from "../../components/button/Button";
+import OtherAuthenticate from "../../layouts/plain/components/otherAuthenticate/OtherAuthenticate";
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            email: "",
+            username: "",
             password: ""
         };
     }
@@ -40,12 +41,12 @@ class Login extends React.Component {
     }
 
     /**
-     * Add new entered character into email field
+     * Add new entered character into username field
      * @param event - event of pressing on button
      */
-    onEmailChange = (event) => {
+    onUsernameChange = (event) => {
         this.setState({
-                email: event.target.value
+                username: event.target.value
             }
         );
     };
@@ -66,7 +67,7 @@ class Login extends React.Component {
      * @returns {boolean} - false if some field are empty
      */
     formFilled = () => {
-        return this.state.email.length !== 0
+        return this.state.username.length !== 0
             && this.state.password.length !== 0;
     };
 
@@ -77,14 +78,14 @@ class Login extends React.Component {
     onLoginSubmit = (event) => {
         event.preventDefault();
 
-        const email = this.state.email;
+        const username = this.state.username;
         const password = this.state.password;
         this.setState({
-            email: "",
+            username: "",
             password: ""
         });
 
-        this.props.login(email, password);
+        this.props.login(username, password);
     };
 
     render() {
@@ -99,13 +100,14 @@ class Login extends React.Component {
                     alt={"Eise Tasks"}
                 />
                 <FormInput
-                    className={"login-form__field"}
+                    className={"login-form__field email-field"}
                     name={"username"}
-                    placeholder={"E-mail"}
-                    onChange={this.onEmailChange}
+                    placeholder={"Login"}
+                    type={"text"}
+                    onChange={this.onUsernameChange}
                 />
                 <FormInput
-                    className={"login-form__field"}
+                    className={"login-form__field password-field"}
                     name={"password"}
                     placeholder={"Password"}
                     type={"password"}
@@ -118,14 +120,12 @@ class Login extends React.Component {
                     value={"Log in"}
                 />
 
-                <section className={"login-form__not-registered not-registered"}>
-                    <p className={"not-registered__title"}
-                    >Don't have an account?</p>
-
-                    <a className={"not-registered__redirect"}
-                       href={URLS.SIGN_UP_PAGE}
-                    >Sign up</a>
-                </section>
+                <OtherAuthenticate
+                    className={"login-form"}
+                    title={"Don't have an account?"}
+                    buttonTitle={"Sign up"}
+                    url={URLS.SIGN_UP_PAGE}
+                />
             </form>
         );
     };

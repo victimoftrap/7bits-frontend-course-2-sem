@@ -26,28 +26,6 @@
     height: 12px;
 }
 
-.already-registered {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    font-size: 13px;
-    font-family: Roboto, sans-serif;
-}
-
-.already-registered__title {
-    margin-top: 40px;
-    margin-bottom: 0;
-    color: #878787;
-}
-
-.already-registered__redirect {
-    color: #626262;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-}
-
 .sign-up-form__agreement {
     height: 55px;
     width: 300px;
@@ -63,11 +41,10 @@
 .agreement__button {
     margin-left: 0;
     margin-right: 10px;
-
-    width: 12px;
-    height: 12px;
-    appearance: none;
-    border: 2px solid #bdbdbd;
+    /*width: 12px;*/
+    /*height: 12px;*/
+    /*appearance: none;*/
+    /*border: 2px solid #bdbdbd;*/
 }
 
 .agreement__title {
@@ -75,11 +52,7 @@
     font-size: 12px;
 }
 
-.agreement__button:hover {
+.agreement__button:checked + .agreement__title {
     content: '';
-    border: 2px solid #74bbfd;
-}
-
-.agreement__title:hover {
     color: #353535;
 }

@@ -22,7 +22,7 @@
     border-bottom-color: #626262;
 }
 
-.password-field:not(:placeholder-shown) {
-    color: #fd5a6f;
-    border-bottom-color: #fd5a6f;
-}
+/*.password-field:not(:placeholder-shown) {*/
+/*    color: #fd5a6f;*/
+/*    border-bottom-color: #fd5a6f;*/
+/*}*/

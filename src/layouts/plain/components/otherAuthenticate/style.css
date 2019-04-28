@@ -1,0 +1,21 @@
+.another-way {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    font-size: 13px;
+    font-family: Roboto, sans-serif;
+}
+
+.another-way__title {
+    margin-top: 40px;
+    margin-bottom: 0;
+    color: #878787;
+}
+
+.another-way__redirect {
+    color: #626262;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}

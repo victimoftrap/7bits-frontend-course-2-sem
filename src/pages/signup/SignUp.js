@@ -7,9 +7,10 @@ import * as URLS from "../sitePageUrls";
 import './style.css';
 import siteLogo from './images/logo.png';
 
+import register from "../../actions/user/register";
 import Button from "../../components/button/Button";
 import FormInput from "../../components/formInput/FormInput";
-import register from "../../actions/user/register";
+import OtherAuthenticate from "../../layouts/plain/components/otherAuthenticate/OtherAuthenticate";
 
 /**
  * Component for registration page
@@ -19,8 +20,9 @@ class SignUp extends React.Component {
         super(props);
 
         this.state = {
-            email: "",
-            password: ""
+            username: "",
+            password: "",
+            agree: false
         };
     }
 
@@ -37,12 +39,12 @@ class SignUp extends React.Component {
     }
 
     /**
-     * Add new entered character into email field
+     * Add new entered character into username field
      * @param event - event of pressing on button
      */
-    onEmailChange = (event) => {
+    onUsernameChange = (event) => {
         this.setState({
-                email: event.target.value
+                username: event.target.value
             }
         );
     };
@@ -59,12 +61,24 @@ class SignUp extends React.Component {
     };
 
     /**
+     * Add user agree to processing his personal data
+     * @param event - event of pressing on checkbox
+     */
+    onUserAgreement = (event) => {
+        this.setState({
+                agree: event.target.checked
+            }
+        );
+    };
+
+    /**
      * Check are all fields in form filled
      * @returns {boolean} - false if some field are empty
      */
     formFilled = () => {
-        return this.state.email.length !== 0
-            && this.state.password.length !== 0;
+        return this.state.username.length !== 0
+            && this.state.password.length !== 0
+            && this.state.agree;
     };
 
     /**
@@ -74,14 +88,14 @@ class SignUp extends React.Component {
     onRegistrationSubmit = (event) => {
         event.preventDefault();
 
-        const email = this.state.email;
+        const username = this.state.username;
         const password = this.state.password;
         this.setState({
-            email: "",
+            username: "",
             password: ""
         });
 
-        this.props.register(email, password);
+        this.props.register(username, password);
     };
 
     /**
@@ -101,10 +115,10 @@ class SignUp extends React.Component {
                 />
                 <FormInput
                     className={"sign-up-from__field email-field"}
-                    name={"email"}
-                    placeholder={"E-mail"}
-                    type={"email"}
-                    onChange={this.onEmailChange}
+                    name={"username"}
+                    placeholder={"Login"}
+                    type={"text"}
+                    onChange={this.onUsernameChange}
                 />
                 <FormInput
                     className={"sign-up-from__field password-field"}
@@ -118,6 +132,7 @@ class SignUp extends React.Component {
                     <input
                         className={"agreement__button"}
                         type={"checkbox"}
+                        onChange={this.onUserAgreement}
                     />
                     <label className={"agreement__title"}>
                         I agree to processing of personal data
@@ -131,14 +146,12 @@ class SignUp extends React.Component {
                     disabled={!this.formFilled()}
                 />
 
-                <section className={"sign-up-form__already-registered already-registered"}>
-                    <p className={"already-registered__title"}
-                    >Have an account?</p>
-
-                    <a className={"already-registered__redirect"}
-                       href={URLS.SIGN_IN_PAGE}
-                    >Log in</a>
-                </section>
+                <OtherAuthenticate
+                    className={"sign-up-form"}
+                    title={"Have an account?"}
+                    buttonTitle={"Log in"}
+                    url={URLS.SIGN_IN_PAGE}
+                />
             </form>
         );
     }
