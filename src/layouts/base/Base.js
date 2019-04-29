@@ -1,19 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {bindActionCreators} from "redux";
+
+import './style.css';
 
 import Header from './components/header/Header';
 import SideBar from './components/sideBar/SideBar';
-
-import './style.css';
+import whoami from "../../actions/user/whoami";
+import {connect} from "react-redux";
 
 /**
  * Base layout of site page
  */
-export default class Base extends React.Component {
+class Base extends React.Component {
+    componentDidMount() {
+        this.props.whoami();
+    }
+
     render() {
         return (
             <React.Fragment>
-                <Header/>
+                <Header user={this.props.username}/>
                 <main className='main'>
                     <SideBar className='main__side-bar'/>
                     <section className='main__content'>
@@ -25,6 +32,20 @@ export default class Base extends React.Component {
     };
 };
 
+const mapStateToProps = (state) => {
+    return {
+        username: state.userReducer.username
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        whoami: bindActionCreators(whoami, dispatch)
+    };
+};
+
 Base.propTypes = {
     children: PropTypes.node.isRequired
 };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Base);

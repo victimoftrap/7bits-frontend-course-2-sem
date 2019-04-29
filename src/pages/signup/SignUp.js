@@ -129,12 +129,13 @@ class SignUp extends React.Component {
                 />
 
                 <section className={"sign-up-form__agreement agreement"}>
-                    <input
-                        className={"agreement__button"}
-                        type={"checkbox"}
-                        onChange={this.onUserAgreement}
-                    />
+
                     <label className={"agreement__title"}>
+                        <input
+                            className={"agreement__button"}
+                            type={"checkbox"}
+                            onChange={this.onUserAgreement}
+                        />
                         I agree to processing of personal data
                     </label>
                 </section>

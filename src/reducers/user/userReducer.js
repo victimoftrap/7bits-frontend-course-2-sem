@@ -1,4 +1,4 @@
-import * as URLS from "../../actions/user/actionTypes";
+import * as types from "../../actions/user/actionTypes";
 
 const initialState = {
     isAuthorized: !!localStorage.getItem("jwt-token"),
@@ -12,42 +12,45 @@ const initialState = {
  */
 export default (state = initialState, action) => {
     switch (action.type) {
-        case URLS.AUTHORIZE_SUCCESS: {
+        case types.REGISTER_SUCCESS: {
+            return {
+                ...state,
+                error: null
+            }
+        }
+        case types.REGISTER_FAIL: {
+            return {
+                ...state,
+                error: action.error
+            }
+        }
+
+        case types.AUTHORIZE_SUCCESS: {
             return {
                 ...state,
                 isAuthorized: true,
                 error: null
             }
         }
-        case URLS.AUTHORIZE_FAIL: {
+        case types.AUTHORIZE_FAIL: {
             return {
                 ...state,
                 isAuthorized: false,
                 error: action.error
             }
         }
-        case URLS.WHOAMI_SUCCESS: {
+
+        case types.AUTHENTICATE_SUCCESS: {
             return {
                 ...state,
+                username: action.username,
                 error: null
             }
         }
-        case URLS.AUTHENTICATE_FAIL: {
+        case types.AUTHENTICATE_FAIL: {
             return {
                 ...state,
                 isAuthorized: false,
-                error: action.error
-            }
-        }
-        case URLS.REGISTER_SUCCESS: {
-            return {
-                ...state,
-                error: null
-            }
-        }
-        case URLS.REGISTER_FAIL: {
-            return {
-                ...state,
                 error: action.error
             }
         }

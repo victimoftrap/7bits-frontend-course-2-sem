@@ -1,6 +1,6 @@
 import {get} from "../../fetcher/fetcher";
 
-import {AUTHENTICATE_FAIL, WHOAMI_SUCCESS} from "./actionTypes";
+import {AUTHENTICATE_FAIL, AUTHENTICATE_SUCCESS} from "./actionTypes";
 
 export default function whoami() {
     return (dispatch) => {
@@ -8,7 +8,8 @@ export default function whoami() {
             .then((response) => {
                 console.log(response);
                 dispatch({
-                    type: WHOAMI_SUCCESS
+                    type: AUTHENTICATE_SUCCESS,
+                    username: response.username
                 });
             })
             .catch((error) => {
