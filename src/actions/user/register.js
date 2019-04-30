@@ -4,13 +4,13 @@ import {REGISTER_SUCCESS, REGISTER_FAIL} from "./actionTypes";
 
 /**
  * Send register request and handle response
- * @param email - user email
+ * @param username - user name
  * @param password - user password
  */
-export default function register(email, password) {
+export default function register(username, password) {
     return dispatch => {
         return postUserData('/api/signup', {
-            username: email,
+            username: username,
             password: password
         }).then((response) => {
             dispatch({

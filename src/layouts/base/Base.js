@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
 
 import './style.css';
 
 import Header from './components/header/Header';
 import SideBar from './components/sideBar/SideBar';
 import whoami from "../../actions/user/whoami";
-import {connect} from "react-redux";
 
 /**
  * Base layout of site page

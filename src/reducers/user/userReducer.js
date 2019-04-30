@@ -1,5 +1,8 @@
 import * as types from "../../actions/user/actionTypes";
 
+/**
+ * Initial state for global store's state
+ */
 const initialState = {
     isAuthorized: !!localStorage.getItem("jwt-token"),
     error: null

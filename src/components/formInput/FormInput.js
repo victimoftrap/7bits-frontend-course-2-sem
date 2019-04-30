@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 
 import "./style.css";
 
+/**
+ * Component for user input
+ */
 export default class FormInput extends React.Component {
     render() {
         const {className, value, type, name, placeholder, onChange} = this.props;

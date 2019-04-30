@@ -99,6 +99,28 @@ class SignUp extends React.Component {
     };
 
     /**
+     * Reset username input field's style
+     */
+    usernameStyleClass = () => {
+        const error = this.props.error;
+        const username = this.state.username;
+        return error === null || username.length > 0
+            ? ""
+            : "invalid-username-field";
+    };
+
+    /**
+     * Reset password input field's style
+     */
+    passwordStyleClass = () => {
+        const error = this.props.error;
+        const password = this.state.password;
+        return error === null || password.length > 0
+            ? ""
+            : "invalid-password-field";
+    };
+
+    /**
      * Render part of the page
      * @returns {*} React fragment
      */
@@ -114,14 +136,14 @@ class SignUp extends React.Component {
                     alt={"Eise Tasks"}
                 />
                 <FormInput
-                    className={"sign-up-from__field email-field"}
+                    className={`sign-up-from__field ${this.usernameStyleClass()}`}
                     name={"username"}
                     placeholder={"Login"}
                     type={"text"}
                     onChange={this.onUsernameChange}
                 />
                 <FormInput
-                    className={"sign-up-from__field password-field"}
+                    className={`sign-up-from__field ${this.passwordStyleClass()}`}
                     name={"password"}
                     placeholder={"Password"}
                     type={"password"}

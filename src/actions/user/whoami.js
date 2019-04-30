@@ -2,6 +2,9 @@ import {get} from "../../fetcher/fetcher";
 
 import {AUTHENTICATE_FAIL, AUTHENTICATE_SUCCESS} from "./actionTypes";
 
+/**
+ * Send request for recognizing user
+ */
 export default function whoami() {
     return (dispatch) => {
         return get('api/whoami')

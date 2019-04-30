@@ -12,6 +12,9 @@ import FormInput from "../../components/formInput/FormInput";
 import Button from "../../components/button/Button";
 import OtherAuthenticate from "../../layouts/plain/components/otherAuthenticate/OtherAuthenticate";
 
+/**
+ * Component for page to sign in
+ */
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -88,6 +91,28 @@ class Login extends React.Component {
         this.props.login(username, password);
     };
 
+    /**
+     * Reset username input field's style
+     */
+    usernameStyleClass = () => {
+        const error = this.props.error;
+        const username = this.state.username;
+        return error === null || username.length > 0
+            ? ""
+            : "invalid-username-field";
+    };
+
+    /**
+     * Reset password input field's style
+     */
+    passwordStyleClass = () => {
+        const error = this.props.error;
+        const password = this.state.password;
+        return error === null || password.length > 0
+            ? ""
+            : "invalid-password-field";
+    };
+
     render() {
         return (
             <form
@@ -100,14 +125,14 @@ class Login extends React.Component {
                     alt={"Eise Tasks"}
                 />
                 <FormInput
-                    className={"login-form__field email-field"}
+                    className={`login-form__field ${this.usernameStyleClass()}`}
                     name={"username"}
                     placeholder={"Login"}
                     type={"text"}
                     onChange={this.onUsernameChange}
                 />
                 <FormInput
-                    className={"login-form__field password-field"}
+                    className={`login-form__field ${this.passwordStyleClass()}`}
                     name={"password"}
                     placeholder={"Password"}
                     type={"password"}
@@ -131,16 +156,30 @@ class Login extends React.Component {
     };
 }
 
+/**
+ * Function for converting current state of store to props
+ * @param state - state of store
+ * @returns {{}}
+ */
 const mapStateToProps = (state) => {
     return {
-        isAuthorized: state.userReducer.isAuthorized
+        isAuthorized: state.userReducer.isAuthorized,
+        error: state.userReducer.error
     };
 };
 
+/**
+ * Send action to store
+ * @param dispatch - method for sending action
+ * @returns {{}}
+ */
 const mapDispatchToProps = (dispatch) => {
     return {
         login: bindActionCreators(signIn, dispatch)
     };
 };
 
+/**
+ * Connect component with store
+ */
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
