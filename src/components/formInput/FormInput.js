@@ -11,14 +11,22 @@ export default class FormInput extends React.Component {
         const {className, value, type, name, placeholder, onChange} = this.props;
 
         return (
-            <input
-                className={`form-input ${className}`}
-                value={value}
-                type={type}
-                name={name}
-                placeholder={placeholder}
-                onChange={onChange}
-            />
+            <div className={"login-form__floating-label floating-label"}>
+                <input
+                    className={`form-input ${className}`}
+                    value={value}
+                    type={type}
+                    name={name}
+                    placeholder={placeholder}
+                    onChange={onChange}
+                />
+                <label
+                    className={"floating-label__label"}
+                    for={name}
+                >
+                    {name}
+                </label>
+            </div>
         );
     };
 }

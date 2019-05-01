@@ -137,14 +137,14 @@ class SignUp extends React.Component {
                 />
                 <FormInput
                     className={`sign-up-from__field ${this.usernameStyleClass()}`}
-                    name={"username"}
-                    placeholder={"Login"}
+                    name={"Username"}
+                    placeholder={"Username"}
                     type={"text"}
                     onChange={this.onUsernameChange}
                 />
                 <FormInput
                     className={`sign-up-from__field ${this.passwordStyleClass()}`}
-                    name={"password"}
+                    name={"Password"}
                     placeholder={"Password"}
                     type={"password"}
                     onChange={this.onPasswordChange}

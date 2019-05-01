@@ -126,14 +126,14 @@ class Login extends React.Component {
                 />
                 <FormInput
                     className={`login-form__field ${this.usernameStyleClass()}`}
-                    name={"username"}
-                    placeholder={"Login"}
+                    name={"Username"}
+                    placeholder={"Username"}
                     type={"text"}
                     onChange={this.onUsernameChange}
                 />
                 <FormInput
                     className={`login-form__field ${this.passwordStyleClass()}`}
-                    name={"password"}
+                    name={"Password"}
                     placeholder={"Password"}
                     type={"password"}
                     onChange={this.onPasswordChange}
