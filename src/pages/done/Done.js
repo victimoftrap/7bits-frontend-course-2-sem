@@ -51,6 +51,20 @@ class Done extends React.Component {
      * @returns {*}
      */
     renderList = () => {
+        if (this.props.tasks.length === 0) {
+            return (
+                <div className={"empty-done-list"}>
+                    <article className={"empty-done-list__suggest suggest"}>
+                        <p className={"suggest__text"}>
+                            You have not done anything yet.
+                        </p>
+                        <p className={"suggest__text"}>
+                            Let’s start!
+                        </p>
+                    </article>
+                </div>
+            );
+        }
         return this.props.tasks.map((item) => {
             return (
                 <DoneTask

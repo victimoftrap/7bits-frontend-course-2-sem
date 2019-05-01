@@ -99,6 +99,20 @@ class Todo extends React.Component {
      * @returns {*[]} <TodoTask/> with values from json
      */
     renderList = () => {
+        if (this.props.tasks.length === 0) {
+            return (
+                <div className={"empty-todo-list"}>
+                    <article className={"empty-todo-list__suggest suggest"}>
+                        <p className={"suggest__text"}>
+                            You do not have any tasks in «To Do».
+                        </p>
+                        <p className={"suggest__text"}>
+                            But you can create them right here!
+                        </p>
+                    </article>
+                </div>
+            );
+        }
         return this.props.tasks.map((item) => {
             return (
                 <TodoTask key={item.id}

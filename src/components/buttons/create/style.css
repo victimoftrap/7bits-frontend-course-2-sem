@@ -13,6 +13,7 @@
 }
 
 .form__create:disabled {
+    cursor: default;
     content: '';
     background-color: #bdbdbd;
     box-shadow: none;

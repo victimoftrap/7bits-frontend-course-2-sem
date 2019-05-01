@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1368 227" width="1368" height="227">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="M0 -132L1366 -132L1366 538L0 538Z" />
+		</clipPath>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: none;stroke: #424242 } 
+	</style>
+	<g id="TO DO empty" clip-path="url(#cp1)">
+		<g id="TO DO empty">
+			<g id="BG">
+				<path id="Ellipse 2" class="shp0" d="M0,54c62.64,43.16 705.25,191.54 835,170c92.35,-15.33 474.91,-171.77 533,-224" />
+			</g>
+		</g>
+	</g>
+</svg>
