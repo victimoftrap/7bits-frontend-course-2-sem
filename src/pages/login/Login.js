@@ -8,8 +8,8 @@ import './style.css';
 import siteLogo from './images/logo.png';
 
 import signIn from "../../actions/user/signIn";
-import FormInput from "../../components/formInput/FormInput";
-import Button from "../../components/button/Button";
+import FormInput from "../../components/inputs/formInput/FormInput";
+import Button from "../../components/buttons/baseButton/Button";
 import OtherAuthenticate from "../../layouts/plain/components/otherAuthenticate/OtherAuthenticate";
 
 /**
@@ -45,7 +45,7 @@ class Login extends React.Component {
 
     /**
      * Add new entered character into username field
-     * @param event - event of pressing on button
+     * @param event - event of pressing on baseButton
      */
     onUsernameChange = (event) => {
         this.setState({

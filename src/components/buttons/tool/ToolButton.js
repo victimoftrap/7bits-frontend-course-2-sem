@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 /**
- * Button component for edition task
+ * Button component for edition tasks
  */
 export default class ToolButton extends React.Component {
     /**
-     * Handle mouse click on button
+     * Handle mouse click on baseButton
      */
     clickHandler = () => {
         console.log(this.props.id);

@@ -4,7 +4,7 @@ import {ADD_TASK_ERROR, ADD_TASK_SUCCESS} from "./actionTypes";
 
 /**
  * Create new task
- * @param taskData - data for new task
+ * @param taskData - data for a new task
  */
 export default function addNewTask(taskData) {
     return dispatch => {

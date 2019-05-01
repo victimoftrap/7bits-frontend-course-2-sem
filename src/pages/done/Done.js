@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
-import DoneTask from "../../components/task/done/DoneTask";
+import DoneTask from "../../components/tasks/done/DoneTask";
 import * as URLS from "../sitePageUrls";
 
 import './style.css';
@@ -26,8 +26,8 @@ class Done extends React.Component {
     }
 
     /**
-     * Change task status handler
-     * @param id - ID of a task
+     * Change tasks status handler
+     * @param id - ID of a tasks
      */
     onClickChangeTaskStatus = (id) => {
         this.props.updateTaskById(id)
@@ -36,8 +36,8 @@ class Done extends React.Component {
             );
     };
     /**
-     * Delete task handler
-     * @param id - ID of a task
+     * Delete tasks handler
+     * @param id - ID of a tasks
      */
     onClickDeleteTask = (id) => {
         this.props.removeTaskById(id)

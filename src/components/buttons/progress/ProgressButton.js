@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 /**
- * Button component for making new status to task
+ * Button component for making new status to tasks
  */
 export default class ProgressButton extends React.Component {
     /**
-     * Handle mouse click on button
+     * Handle mouse click on baseButton
      */
     clickHandler = () => {
         console.log(this.props.id);

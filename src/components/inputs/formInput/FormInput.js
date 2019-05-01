@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "./style.css";
 
 /**
- * Component for user input
+ * Component for user inputs
  */
 export default class FormInput extends React.Component {
     render() {

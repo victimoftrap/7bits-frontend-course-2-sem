@@ -2,8 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
 
-import TodoTask from "../../components/task/todo/TodoTask";
-import TaskInputField from "../../components/form/field/TaskInputField";
+import TodoTask from "../../components/tasks/todo/TodoTask";
+import TaskInputField from "../../components/inputs/taskInput/TaskInputField";
 import CreateTaskButton from "../../components/buttons/create/CreateTaskButton";
 import * as URLS from "../sitePageUrls";
 
@@ -43,8 +43,8 @@ class Todo extends React.Component {
     }
 
     /**
-     * Change task status handler
-     * @param id - ID of a task
+     * Change tasks status handler
+     * @param id - ID of a tasks
      */
     onClickChangeTaskStatus = (id) => {
         this.props.updateTaskById(id, {
@@ -55,8 +55,8 @@ class Todo extends React.Component {
             );
     };
     /**
-     * Delete task handler
-     * @param id - ID of a task
+     * Delete tasks handler
+     * @param id - ID of a tasks
      */
     onClickDeleteTask = (id) => {
         this.props.removeTaskById(id)
@@ -67,7 +67,7 @@ class Todo extends React.Component {
 
     /**
      * Add new entered character to state
-     * @param event - event of pressing on button
+     * @param event - event of pressing on baseButton
      */
     onChange = (event) => {
         this.setState({
@@ -77,7 +77,7 @@ class Todo extends React.Component {
     };
 
     /**
-     * Add new task, that text entered from input
+     * Add new tasks, that text entered from inputs
      * @param event - event of submitting form
      */
     onSubmit = (event) => {

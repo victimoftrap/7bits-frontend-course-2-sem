@@ -18,7 +18,10 @@ export default class Task extends React.Component {
     };
 
     render() {
-        const {taskId, taskTitle, leftButtonClassName, editButton, onClickChangeTaskStatus, onClickDeleteTask} = this.props;
+        const {
+            taskId, taskTitle, leftButtonClassName, editButton,
+            onClickChangeTaskStatus, onClickDeleteTask
+        } = this.props;
 
         return (
             <article className="task">

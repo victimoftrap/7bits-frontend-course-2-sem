@@ -48,7 +48,7 @@ export function get(url) {
 /**
  * Do POST request
  * @param url - url to the server
- * @param taskData - data of new task
+ * @param taskData - data of a new task
  */
 export function post(url, taskData) {
     return fetch(url, buildRequest('POST', JSON.stringify(taskData)))
@@ -80,7 +80,7 @@ export function remove(url) {
 /**
  * Do PATCH request
  * @param url - url to task, that would be updated
- * @param updatedTask - data of updated task
+ * @param updatedTask - data of updated tasks
  */
 export function patch(url, updatedTask) {
     return fetch(url, buildRequest('PATCH', JSON.stringify(updatedTask)))

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import './style.css';
 
 /**
- * Component for user input field
+ * Component for user inputs taskInput
  */
 export default class TaskInputField extends React.Component{
     render() {

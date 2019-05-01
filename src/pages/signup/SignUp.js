@@ -8,8 +8,8 @@ import './style.css';
 import siteLogo from './images/logo.png';
 
 import register from "../../actions/user/register";
-import Button from "../../components/button/Button";
-import FormInput from "../../components/formInput/FormInput";
+import Button from "../../components/buttons/baseButton/Button";
+import FormInput from "../../components/inputs/formInput/FormInput";
 import OtherAuthenticate from "../../layouts/plain/components/otherAuthenticate/OtherAuthenticate";
 
 /**
