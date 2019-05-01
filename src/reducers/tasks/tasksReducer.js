@@ -30,6 +30,46 @@ export default (state = initialState, action) => {
                 error: action.error
             }
         }
+
+        case responseTypes.ADD_TASK_SUCCESS: {
+            return {
+                ...state,
+                error: null
+            }
+        }
+        case responseTypes.ADD_TASK_ERROR: {
+            return {
+                ...state,
+                error: action.error
+            }
+        }
+
+        case responseTypes.REMOVE_TASK_SUCCESS: {
+            return {
+                ...state,
+                error: null
+            }
+        }
+        case responseTypes.REMOVE_TASK_ERROR: {
+            return {
+                ...state,
+                error: action.error
+            }
+        }
+
+        case responseTypes.UPDATE_TASK_SUCCESS: {
+            return {
+                ...state,
+                error: null
+            }
+        }
+        case responseTypes.UPDATE_TASK_ERROR: {
+            return {
+                ...state,
+                error: action.error
+            }
+        }
+
         default: {
             return state;
         }
