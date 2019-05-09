@@ -27,23 +27,29 @@ class Todo extends React.Component {
         };
     }
 
-    componentDidMount() {
+    /**
+     * Check are user authorized. If not authorized, redirect to sign in page
+     */
+    checkAuthorized = () => {
         if (!this.props.isAuthorized) {
             this.props.history.replace(URLS.SIGN_IN_PAGE);
         }
+    };
+
+    componentDidMount() {
+        this.checkAuthorized();
 
         this.props.whoami();
         this.props.getTaskList("inbox");
     }
 
     componentDidUpdate() {
-        if (!this.props.isAuthorized) {
-            this.props.history.replace(URLS.SIGN_IN_PAGE);
-        }
+        this.checkAuthorized();
     }
 
     /**
      * Change tasks status handler
+     *
      * @param id - ID of a tasks
      */
     onClickChangeTaskStatus = (id) => {
@@ -56,6 +62,7 @@ class Todo extends React.Component {
     };
     /**
      * Delete tasks handler
+     *
      * @param id - ID of a tasks
      */
     onClickDeleteTask = (id) => {
@@ -67,6 +74,7 @@ class Todo extends React.Component {
 
     /**
      * Add new entered character to state
+     *
      * @param event - event of pressing on baseButton
      */
     onChange = (event) => {
@@ -78,6 +86,7 @@ class Todo extends React.Component {
 
     /**
      * Add new tasks, that text entered from inputs
+     *
      * @param event - event of submitting form
      */
     onSubmit = (event) => {
@@ -96,6 +105,7 @@ class Todo extends React.Component {
 
     /**
      * Convert values from json to list of <TodoTask/> tags
+     *
      * @returns {*[]} <TodoTask/> with values from json
      */
     renderList = () => {
@@ -131,6 +141,7 @@ class Todo extends React.Component {
 
     /**
      * Render part of page
+     *
      * @returns {*} React fragment
      */
     render() {
@@ -157,8 +168,8 @@ class Todo extends React.Component {
 
 /**
  * Function for converting current state of store to props
+ *
  * @param state - state of store
- * @returns {{}}
  */
 const mapStateToProps = (state) => {
     return {
@@ -169,8 +180,8 @@ const mapStateToProps = (state) => {
 
 /**
  * Send action to store
+ *
  * @param dispatch - method for sending action
- * @returns {{}}
  */
 const mapDispatchToProps = (dispatch) => {
     return {

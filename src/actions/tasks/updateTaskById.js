@@ -4,15 +4,19 @@ import {UPDATE_TASK_ERROR, UPDATE_TASK_SUCCESS} from "./actionTypes";
 
 /**
  * Update task by ID
- * @param id - ID of a task
+ *
+ * @param id          - ID of a task
  * @param updatedTask - new data for the task
  */
 export default function updateTaskById(id, updatedTask) {
     return dispatch => {
-        return patch(`/api/tasks/${id}`, updatedTask)
+        const token = localStorage.getItem('jwt-token');
+
+        return patch(`/api/tasks/${id}`, JSON.stringify(updatedTask), token)
             .then((response) => {
                 dispatch({
-                    type: UPDATE_TASK_SUCCESS
+                    type: UPDATE_TASK_SUCCESS,
+                    error: null
                 })
             })
             .catch(error => {

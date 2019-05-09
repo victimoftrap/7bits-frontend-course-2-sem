@@ -10,8 +10,10 @@ const initialState = {
 
 /**
  * Reducer for user authenticate
- * @param state - global state for application
+ *
+ * @param state  - global state for application
  * @param action - action with updates
+ * @return new object of redux store
  */
 export default (state = initialState, action) => {
     switch (action.type) {

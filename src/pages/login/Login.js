@@ -25,6 +25,9 @@ class Login extends React.Component {
         };
     }
 
+    /**
+     * Check are user authorized. If not authorized, redirect to sign in page
+     */
     checkAuthorized = () => {
         if (this.props.isAuthorized) {
             this.props.history.replace(URLS.MAIN_TODO_TASKS_PAGE);
@@ -45,6 +48,7 @@ class Login extends React.Component {
 
     /**
      * Add new entered character into username field
+     *
      * @param event - event of pressing on baseButton
      */
     onUsernameChange = (event) => {
@@ -56,6 +60,7 @@ class Login extends React.Component {
 
     /**
      * Add new entered character into password field
+     *
      * @param event - event of pressing on button
      */
     onPasswordChange = (event) => {
@@ -67,6 +72,7 @@ class Login extends React.Component {
 
     /**
      * Check are all fields in form filled
+     *
      * @returns {boolean} - false if some field are empty
      */
     formFilled = () => {
@@ -76,6 +82,7 @@ class Login extends React.Component {
 
     /**
      * Register new user
+     *
      * @param event - event of submitting form
      */
     onLoginSubmit = (event) => {
@@ -88,7 +95,9 @@ class Login extends React.Component {
             password: ""
         });
 
-        this.props.login(username, password);
+        this.props.login(username, password).then(
+            this.checkAuthorized()
+        );
     };
 
     /**
@@ -158,8 +167,8 @@ class Login extends React.Component {
 
 /**
  * Function for converting current state of store to props
+ *
  * @param state - state of store
- * @returns {{}}
  */
 const mapStateToProps = (state) => {
     return {
@@ -170,8 +179,8 @@ const mapStateToProps = (state) => {
 
 /**
  * Send action to store
+ *
  * @param dispatch - method for sending action
- * @returns {{}}
  */
 const mapDispatchToProps = (dispatch) => {
     return {

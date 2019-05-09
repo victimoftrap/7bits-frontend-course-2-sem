@@ -7,16 +7,19 @@ import {AUTHENTICATE_FAIL, AUTHENTICATE_SUCCESS} from "./actionTypes";
  */
 export default function whoami() {
     return (dispatch) => {
-        return get('api/whoami')
+        const token = localStorage.getItem('jwt-token');
+
+        return get('api/whoami', token)
             .then((response) => {
-                console.log(response);
                 dispatch({
                     type: AUTHENTICATE_SUCCESS,
-                    username: response.username
+                    username: response.username,
+                    error: null
                 });
             })
             .catch((error) => {
                 localStorage.removeItem('jwt-token');
+
                 dispatch({
                     type: AUTHENTICATE_FAIL,
                     error: error

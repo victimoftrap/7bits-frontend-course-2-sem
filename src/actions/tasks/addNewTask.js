@@ -4,14 +4,18 @@ import {ADD_TASK_ERROR, ADD_TASK_SUCCESS} from "./actionTypes";
 
 /**
  * Create new task
+ *
  * @param taskData - data for a new task
  */
 export default function addNewTask(taskData) {
     return dispatch => {
-        return post(`/api/tasks/`, taskData)
+        const token = localStorage.getItem('jwt-token');
+
+        return post(`/api/tasks/`, JSON.stringify(taskData), token)
             .then((response) => {
                 dispatch({
                     type: ADD_TASK_SUCCESS,
+                    error: null
                 })
             })
             .catch((error) => {

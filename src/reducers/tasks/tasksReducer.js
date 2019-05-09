@@ -10,7 +10,8 @@ const initialState = {
 
 /**
  * Reducer for task list. Process piece of data from store by action
- * @param state - global state for application
+ *
+ * @param state  - global state for application
  * @param action - action with updates
  * @return new object of redux store
  */

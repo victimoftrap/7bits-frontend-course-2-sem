@@ -30,22 +30,35 @@ class Base extends React.Component {
             </React.Fragment>
         );
     };
+}
+
+Base.propTypes = {
+    children: PropTypes.node.isRequired
 };
 
+/**
+ * Function for converting current state of store to props
+ *
+ * @param state - state of store
+ */
 const mapStateToProps = (state) => {
     return {
         username: state.userReducer.username
     };
 };
 
+/**
+ * Send action to store
+ *
+ * @param dispatch - method for sending action
+ */
 const mapDispatchToProps = (dispatch) => {
     return {
         whoami: bindActionCreators(whoami, dispatch)
     };
 };
 
-Base.propTypes = {
-    children: PropTypes.node.isRequired
-};
-
+/**
+ * Connect component with store
+ */
 export default connect(mapStateToProps, mapDispatchToProps)(Base);

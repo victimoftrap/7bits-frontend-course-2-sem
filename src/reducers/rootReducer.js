@@ -5,8 +5,9 @@ import taskListReducer from './tasks/tasksReducer';
 
 /**
  * Make root reducer from separated reducers. Call created reducers with requested params.
- * @param state
- * @param action
+ *
+ * @param state  - global state of application
+ * @param action - new action from components with updates
  */
 export default (state = {}, action) => {
     return combineReducers({

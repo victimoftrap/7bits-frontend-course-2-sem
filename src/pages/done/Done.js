@@ -27,6 +27,7 @@ class Done extends React.Component {
 
     /**
      * Change tasks status handler
+     *
      * @param id - ID of a tasks
      */
     onClickChangeTaskStatus = (id) => {
@@ -37,6 +38,7 @@ class Done extends React.Component {
     };
     /**
      * Delete tasks handler
+     *
      * @param id - ID of a tasks
      */
     onClickDeleteTask = (id) => {
@@ -84,6 +86,7 @@ class Done extends React.Component {
 
     /**
      * Render part of page
+     *
      * @returns {*} React fragment
      */
     render() {
@@ -97,8 +100,8 @@ class Done extends React.Component {
 
 /**
  * Function for converting current state of store to props
+ *
  * @param state - state of store
- * @returns {{}}
  */
 const mapStateToProps = (state) => {
     return {
@@ -109,8 +112,8 @@ const mapStateToProps = (state) => {
 
 /**
  * Send action to store
+ *
  * @param dispatch - method for sending action
- * @returns {{}}
  */
 const mapDispatchToProps = (dispatch) => {
     return {

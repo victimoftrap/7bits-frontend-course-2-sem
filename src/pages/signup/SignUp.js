@@ -7,6 +7,7 @@ import * as URLS from "../sitePageUrls";
 import './style.css';
 import siteLogo from './images/logo.png';
 
+import signIn from "../../actions/user/signIn";
 import register from "../../actions/user/register";
 import Button from "../../components/buttons/baseButton/Button";
 import FormInput from "../../components/inputs/formInput/FormInput";
@@ -40,6 +41,7 @@ class SignUp extends React.Component {
 
     /**
      * Add new entered character into username field
+     *
      * @param event - event of pressing on button
      */
     onUsernameChange = (event) => {
@@ -51,6 +53,7 @@ class SignUp extends React.Component {
 
     /**
      * Add new entered character into password field
+     *
      * @param event - event of pressing on button
      */
     onPasswordChange = (event) => {
@@ -62,6 +65,7 @@ class SignUp extends React.Component {
 
     /**
      * Add user agree to processing his personal data
+     *
      * @param event - event of pressing on checkbox
      */
     onUserAgreement = (event) => {
@@ -73,6 +77,7 @@ class SignUp extends React.Component {
 
     /**
      * Check are all fields in form filled
+     *
      * @returns {boolean} - false if some field are empty
      */
     formFilled = () => {
@@ -83,6 +88,7 @@ class SignUp extends React.Component {
 
     /**
      * Register new user
+     *
      * @param event - event of submitting form
      */
     onRegistrationSubmit = (event) => {
@@ -95,7 +101,10 @@ class SignUp extends React.Component {
             password: ""
         });
 
-        this.props.register(username, password);
+        this.props.register(username, password)
+            .then(
+                this.props.signIn(username, password)
+            )
     };
 
     /**
@@ -182,8 +191,8 @@ class SignUp extends React.Component {
 
 /**
  * Function for converting current state of store to props
+ *
  * @param state - state of store
- * @returns {{}}
  */
 const mapStateToProps = (state) => {
     return {
@@ -193,12 +202,13 @@ const mapStateToProps = (state) => {
 
 /**
  * Send action to store
+ *
  * @param dispatch - method for sending action
- * @returns {{}}
  */
 const mapDispatchToProps = (dispatch) => {
     return {
-        register: bindActionCreators(register, dispatch)
+        register: bindActionCreators(register, dispatch),
+        signIn: bindActionCreators(signIn, dispatch)
     };
 };
 

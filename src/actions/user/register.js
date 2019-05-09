@@ -1,26 +1,31 @@
-import {postUserData} from "../../fetcher/fetcher";
+import {post} from "../../fetcher/fetcher";
 
 import {REGISTER_SUCCESS, REGISTER_FAIL} from "./actionTypes";
 
 /**
  * Send register request and handle response
+ *
  * @param username - user name
  * @param password - user password
  */
 export default function register(username, password) {
     return dispatch => {
-        return postUserData('/api/signup', {
+        const userData = {
             username: username,
             password: password
-        }).then((response) => {
-            dispatch({
-                type: REGISTER_SUCCESS
+        };
+
+        return post('/api/signup', JSON.stringify(userData), null)
+            .then((response) => {
+                dispatch({
+                    type: REGISTER_SUCCESS,
+                    error: null
+                })
+            }).catch((error) => {
+                dispatch({
+                    type: REGISTER_FAIL,
+                    error: error
+                })
             })
-        }).catch((error) => {
-            dispatch({
-                type: REGISTER_FAIL,
-                error: error
-            })
-        })
     }
 }
