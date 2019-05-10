@@ -1,0 +1,46 @@
+{
+  "layouts": {
+    "base": {
+      "sidebar": {
+        "todo": "To Do",
+        "done": "Done"
+      },
+
+      "pages": {
+        "todo": {
+          "create-task": {
+            "title": "Create",
+            "placeholder": "Your text here"
+          },
+
+          "empty-list": {
+            "title-empty": "You do not have any tasks in «To Do».",
+            "title-suggest": "But you can create them right here!"
+          }
+        },
+
+        "done": {
+          "empty-list": {
+            "title-empty": "You have not done anything yet.",
+            "title-suggest": "Let’s start!"
+          }
+        }
+      }
+    },
+
+    "plain": {
+      "auth": {
+        "username": "Username",
+        "password": "Password",
+
+        "sign-in": "Log in",
+        "sign-up": "Sign up",
+
+        "have-account": "Have an account?",
+        "dont-have-account": "Don't have an account?",
+
+        "personal-data": "I agree to processing of personal data"
+      }
+    }
+  }
+}

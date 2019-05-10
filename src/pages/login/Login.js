@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
+import { I18n } from 'react-redux-i18n';
 
 import * as URLS from "../sitePageUrls";
 
@@ -136,15 +137,15 @@ class Login extends React.Component {
                 />
                 <FormInput
                     className={`login-form__field ${this.usernameStyleClass()}`}
-                    name={"Username"}
-                    placeholder={"Username"}
+                    name={I18n.t('layouts.plain.auth.username')}
+                    placeholder={I18n.t('layouts.plain.auth.username')}
                     type={"text"}
                     onChange={this.onUsernameChange}
                 />
                 <FormInput
                     className={`login-form__field ${this.passwordStyleClass()}`}
-                    name={"Password"}
-                    placeholder={"Password"}
+                    name={I18n.t('layouts.plain.auth.password')}
+                    placeholder={I18n.t('layouts.plain.auth.password')}
                     type={"password"}
                     onChange={this.onPasswordChange}
                 />
@@ -152,13 +153,13 @@ class Login extends React.Component {
                     className={"login-form__button button"}
                     type={"submit"}
                     disabled={!this.formFilled()}
-                    value={"Log in"}
+                    value={I18n.t('layouts.plain.auth.sign-in')}
                 />
 
                 <OtherAuthenticate
                     className={"login-form"}
-                    title={"Don't have an account?"}
-                    buttonTitle={"Sign up"}
+                    title={I18n.t('layouts.plain.auth.dont-have-account')}
+                    buttonTitle={I18n.t('layouts.plain.auth.sign-up')}
                     url={URLS.SIGN_UP_PAGE}
                 />
             </form>

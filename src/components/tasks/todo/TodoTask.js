@@ -33,7 +33,7 @@ export default class TodoTask extends React.Component {
 TodoTask.propTypes = {
     id:                      PropTypes.string.isRequired,
     title:                   PropTypes.string.isRequired,
-    leftButtonClassName:     PropTypes.element.isRequired,
+    leftButtonClassName:     PropTypes.element,
     onClickChangeTaskStatus: PropTypes.func.isRequired,
     onClickDeleteTask:       PropTypes.func.isRequired
 };

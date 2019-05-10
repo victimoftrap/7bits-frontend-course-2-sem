@@ -1,0 +1,46 @@
+{
+  "layouts": {
+    "base": {
+      "sidebar": {
+        "todo": "Сделать",
+        "done": "Сделано"
+      },
+
+      "pages": {
+        "todo": {
+          "create-task": {
+            "title": "Создать",
+            "placeholder": "Моя новая задача..."
+          },
+
+          "empty-list": {
+            "title-empty": "Здесь будет список Ваших задач.",
+            "title-suggest": "Запишите их сейчас, чтобы ничего не забыть!"
+          }
+        },
+
+        "done": {
+          "empty-list": {
+            "title-empty": "Здесь слишком пусто...",
+            "title-suggest": "Давайте это исправим!"
+          }
+        }
+      }
+    },
+
+    "plain": {
+      "auth": {
+        "username": "Логин",
+        "password": "Пароль",
+
+        "sign-in": "Войти",
+        "sign-up": "Зарегистрироваться",
+
+        "have-account": "Уже есть аккаунт?",
+        "dont-have-account": "Ещё не зарегистрированы?",
+
+        "personal-data": "Я согласен на обработку моих данных"
+      }
+    }
+  }
+}

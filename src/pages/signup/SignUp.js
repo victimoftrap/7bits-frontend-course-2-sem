@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
+import { I18n } from 'react-redux-i18n';
 
 import * as URLS from "../sitePageUrls";
 
@@ -147,15 +148,15 @@ class SignUp extends React.Component {
                 />
                 <FormInput
                     className={`sign-up-from__field ${this.usernameStyleClass()}`}
-                    name={"Username"}
-                    placeholder={"Username"}
+                    name={I18n.t('layouts.plain.auth.username')}
+                    placeholder={I18n.t('layouts.plain.auth.username')}
                     type={"text"}
                     onChange={this.onUsernameChange}
                 />
                 <FormInput
                     className={`sign-up-from__field ${this.passwordStyleClass()}`}
-                    name={"Password"}
-                    placeholder={"Password"}
+                    name={I18n.t('layouts.plain.auth.password')}
+                    placeholder={I18n.t('layouts.plain.auth.password')}
                     type={"password"}
                     onChange={this.onPasswordChange}
                 />
@@ -168,21 +169,21 @@ class SignUp extends React.Component {
                             type={"checkbox"}
                             onChange={this.onUserAgreement}
                         />
-                        I agree to processing of personal data
+                        {I18n.t('layouts.plain.auth.personal-data')}
                     </label>
                 </section>
 
                 <Button
                     className={"sign-up-form__button button"}
-                    value={"Sign up"}
+                    value={I18n.t('layouts.plain.auth.sign-up')}
                     type={"submit"}
                     disabled={!this.formFilled()}
                 />
 
                 <OtherAuthenticate
                     className={"sign-up-form"}
-                    title={"Have an account?"}
-                    buttonTitle={"Log in"}
+                    title={I18n.t('layouts.plain.auth.have-account')}
+                    buttonTitle={I18n.t('layouts.plain.auth.sign-in')}
                     url={URLS.SIGN_IN_PAGE}
                 />
             </form>

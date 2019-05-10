@@ -1,4 +1,5 @@
 import {combineReducers} from 'redux';
+import {i18nReducer} from 'react-redux-i18n';
 
 import userReducer from "./user/userReducer";
 import taskListReducer from './tasks/tasksReducer';
@@ -12,6 +13,7 @@ import taskListReducer from './tasks/tasksReducer';
 export default (state = {}, action) => {
     return combineReducers({
         taskListReducer,
-        userReducer
+        userReducer,
+        i18n: i18nReducer
     })(state, action)
 };

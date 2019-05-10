@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { I18n } from 'react-redux-i18n';
 
 import './style.css';
 import Button from "../baseButton/Button";
@@ -16,7 +17,7 @@ export default class CreateTaskButton extends React.Component {
                 className={`form__create ${className}`}
                 type={type}
                 disabled={disabled}
-                value={"Create"}
+                value={I18n.t('layouts.base.pages.todo.create-task.title')}
             />
         );
     }

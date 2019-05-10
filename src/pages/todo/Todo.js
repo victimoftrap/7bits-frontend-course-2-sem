@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
+import { I18n } from 'react-redux-i18n';
 
 import TodoTask from "../../components/tasks/todo/TodoTask";
 import TaskInputField from "../../components/inputs/taskInput/TaskInputField";
@@ -115,10 +116,10 @@ class Todo extends React.Component {
                 <div className={"empty-todo-list"}>
                     <article className={"empty-todo-list__suggest suggest"}>
                         <p className={"suggest__text"}>
-                            You do not have any tasks in «To Do».
+                            {I18n.t('layouts.base.pages.todo.empty-list.title-empty')}
                         </p>
                         <p className={"suggest__text"}>
-                            But you can create them right here!
+                            {I18n.t('layouts.base.pages.todo.empty-list.title-suggest')}
                         </p>
                     </article>
                 </div>
@@ -153,7 +154,7 @@ class Todo extends React.Component {
                 >
                     <TaskInputField
                         value={this.state.value}
-                        placeholder={"Your text here"}
+                        placeholder={I18n.t('layouts.base.pages.todo.create-task.placeholder')}
                         onChange={this.onChange}
                     />
                     <CreateTaskButton

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
+import { I18n } from 'react-redux-i18n';
 
 import DoneTask from "../../components/tasks/done/DoneTask";
 import * as URLS from "../sitePageUrls";
@@ -59,10 +60,10 @@ class Done extends React.Component {
                 <div className={"empty-done-list"}>
                     <article className={"empty-done-list__suggest suggest"}>
                         <p className={"suggest__text"}>
-                            You have not done anything yet.
+                            {I18n.t('layouts.base.pages.done.empty-list.title-empty')}
                         </p>
                         <p className={"suggest__text"}>
-                            Let’s start!
+                            {I18n.t('layouts.base.pages.done.empty-list.title-suggest')}
                         </p>
                     </article>
                 </div>
