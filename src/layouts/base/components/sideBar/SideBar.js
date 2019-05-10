@@ -39,13 +39,9 @@ export default class SideBar extends React.Component {
                 </nav>
             </aside>
         );
-    };
-};
+    }
+}
 
 SideBar.propTypes = {
-    className: PropTypes.string
-};
-
-SideBar.defaultProps = {
-    className: ''
+    className: PropTypes.string.isRequired
 };

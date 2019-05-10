@@ -29,11 +29,13 @@ class Base extends React.Component {
                 </main>
             </React.Fragment>
         );
-    };
+    }
 }
 
 Base.propTypes = {
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    username: PropTypes.string.isRequired,
+    whoami:   PropTypes.func.isRequired
 };
 
 /**

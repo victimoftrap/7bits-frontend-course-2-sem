@@ -12,7 +12,7 @@ export default function removeTaskById(id) {
         const token = localStorage.getItem('jwt-token');
 
         return remove(`/api/tasks/${id}`, token)
-            .then(response => {
+            .then(() => {
                 dispatch({
                     type: REMOVE_TASK_SUCCESS,
                     error: null

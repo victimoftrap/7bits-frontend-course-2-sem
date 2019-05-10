@@ -10,13 +10,6 @@ import ToolButton from "../../buttons/tool/ToolButton";
  * Base component for task
  */
 export default class Task extends React.Component {
-    /**
-     * Function that handles mouse click on button
-     */
-    onClick = () => {
-        console.log(this.props.taskId);
-    };
-
     render() {
         const {
             taskId, taskTitle, leftButtonClassName, editButton,
@@ -43,15 +36,15 @@ export default class Task extends React.Component {
                 </div>
             </article>
         );
-    };
-};
+    }
+}
 
 Task.propTypes = {
-    taskId: PropTypes.string.isRequired,
-    taskTitle: PropTypes.string.isRequired,
+    taskId:              PropTypes.string.isRequired,
+    taskTitle:           PropTypes.string.isRequired,
     leftButtonClassName: PropTypes.string.isRequired,
-    editButton: PropTypes.element,
+    editButton:          PropTypes.element,
 
-    onClickChangeTaskStatus: PropTypes.func,
-    onClickDeleteTask: PropTypes.func
+    onClickChangeTaskStatus: PropTypes.func.isRequired,
+    onClickDeleteTask: PropTypes.func.isRequired
 };

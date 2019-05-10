@@ -11,6 +11,7 @@ import signIn from "../../actions/user/signIn";
 import FormInput from "../../components/inputs/formInput/FormInput";
 import Button from "../../components/buttons/baseButton/Button";
 import OtherAuthenticate from "../../layouts/plain/components/otherAuthenticate/OtherAuthenticate";
+import PropTypes from "prop-types";
 
 /**
  * Component for page to sign in
@@ -95,7 +96,7 @@ class Login extends React.Component {
             password: ""
         });
 
-        this.props.login(username, password).then(
+        this.props.signIn(username, password).then(
             this.checkAuthorized()
         );
     };
@@ -162,8 +163,15 @@ class Login extends React.Component {
                 />
             </form>
         );
-    };
+    }
 }
+
+Login.propTypes = {
+    history:      PropTypes.func.isRequired,
+    isAuthorized: PropTypes.bool.isRequired,
+    error:        PropTypes.object.isRequired,
+    signIn:       PropTypes.func.isRequired
+};
 
 /**
  * Function for converting current state of store to props
@@ -184,7 +192,7 @@ const mapStateToProps = (state) => {
  */
 const mapDispatchToProps = (dispatch) => {
     return {
-        login: bindActionCreators(signIn, dispatch)
+        signIn: bindActionCreators(signIn, dispatch)
     };
 };
 

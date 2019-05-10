@@ -22,13 +22,13 @@ export default class FormInput extends React.Component {
                 />
                 <label
                     className={"floating-label__label"}
-                    for={name}
+                    htmlFor={name}
                 >
                     {name}
                 </label>
             </div>
         );
-    };
+    }
 }
 
 FormInput.defaultProps = {
@@ -41,10 +41,10 @@ FormInput.defaultProps = {
 };
 
 FormInput.propTypes = {
-    value: PropTypes.string,
-    className: PropTypes.string,
-    type: PropTypes.string,
-    name: PropTypes.string,
+    value:       PropTypes.string,
+    className:   PropTypes.string,
+    type:        PropTypes.string,
+    name:        PropTypes.string,
     placeholder: PropTypes.string,
-    onChange: PropTypes.func
+    onChange:    PropTypes.func
 };

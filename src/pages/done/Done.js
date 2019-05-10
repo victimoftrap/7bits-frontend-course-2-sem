@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
@@ -95,8 +96,18 @@ class Done extends React.Component {
                 {this.renderList()}
             </React.Fragment>
         );
-    };
+    }
 }
+
+Done.propTypes = {
+    history:        PropTypes.func.isRequired,
+    isAuthorized:   PropTypes.bool.isRequired,
+    tasks:          PropTypes.array.isRequired,
+    getTaskList:    PropTypes.func.isRequired,
+    updateTaskById: PropTypes.func.isRequired,
+    removeTaskById: PropTypes.func.isRequired,
+    whoami:         PropTypes.func.isRequired
+};
 
 /**
  * Function for converting current state of store to props

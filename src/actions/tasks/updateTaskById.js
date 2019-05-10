@@ -13,7 +13,7 @@ export default function updateTaskById(id, updatedTask) {
         const token = localStorage.getItem('jwt-token');
 
         return patch(`/api/tasks/${id}`, JSON.stringify(updatedTask), token)
-            .then((response) => {
+            .then(() => {
                 dispatch({
                     type: UPDATE_TASK_SUCCESS,
                     error: null

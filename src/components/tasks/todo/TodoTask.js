@@ -8,13 +8,6 @@ import ToolButton from "../../buttons/tool/ToolButton";
  * Component for task on Done page
  */
 export default class TodoTask extends React.Component {
-    /**
-     * Function that handles mouse click on button
-     */
-    onClick = () => {
-        console.log(this.props.id);
-    };
-
     render() {
         const {id, title, onClickChangeTaskStatus, onClickDeleteTask} = this.props;
 
@@ -34,14 +27,13 @@ export default class TodoTask extends React.Component {
                 onClickDeleteTask={onClickDeleteTask}
             />
         );
-    };
-};
+    }
+}
 
-Task.propTypes = {
-    id: PropTypes.string,
-    title: PropTypes.string,
-    leftButtonClassName: PropTypes.element,
-
-    onClickChangeTaskStatus: PropTypes.func,
-    onClickDeleteTask: PropTypes.func
+TodoTask.propTypes = {
+    id:                      PropTypes.string.isRequired,
+    title:                   PropTypes.string.isRequired,
+    leftButtonClassName:     PropTypes.element.isRequired,
+    onClickChangeTaskStatus: PropTypes.func.isRequired,
+    onClickDeleteTask:       PropTypes.func.isRequired
 };

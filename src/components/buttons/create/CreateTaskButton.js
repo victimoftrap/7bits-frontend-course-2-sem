@@ -19,13 +19,13 @@ export default class CreateTaskButton extends React.Component {
                 value={"Create"}
             />
         );
-    };
-};
+    }
+}
 
 CreateTaskButton.propTypes = {
     className: PropTypes.string,
-    type: PropTypes.string,
-    disabled: PropTypes.bool
+    type:      PropTypes.string,
+    disabled:  PropTypes.bool
 };
 
 CreateTaskButton.defaultProps = {

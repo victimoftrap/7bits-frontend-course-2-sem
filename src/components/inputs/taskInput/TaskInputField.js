@@ -26,11 +26,11 @@ export default class TaskInputField extends React.Component{
 }
 
 TaskInputField.propTypes = {
-    value: PropTypes.string,
-    type: PropTypes.string,
-    name: PropTypes.string,
+    value:       PropTypes.string,
+    type:        PropTypes.string,
+    name:        PropTypes.string,
     placeholder: PropTypes.string,
-    onChange: PropTypes.func
+    onChange:    PropTypes.func
 };
 
 TaskInputField.defaultProps = {

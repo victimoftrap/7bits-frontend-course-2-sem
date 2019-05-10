@@ -12,7 +12,7 @@ export default function addNewTask(taskData) {
         const token = localStorage.getItem('jwt-token');
 
         return post(`/api/tasks/`, JSON.stringify(taskData), token)
-            .then((response) => {
+            .then(() => {
                 dispatch({
                     type: ADD_TASK_SUCCESS,
                     error: null

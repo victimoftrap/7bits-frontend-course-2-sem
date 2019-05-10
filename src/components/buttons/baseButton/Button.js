@@ -31,7 +31,7 @@ Button.defaultProps = {
 
 Button.propTypes = {
     className: PropTypes.string,
-    type: PropTypes.string,
-    value: PropTypes.string,
-    disabled: PropTypes.bool
+    type:      PropTypes.string,
+    value:     PropTypes.string,
+    disabled:  PropTypes.bool
 };

@@ -18,13 +18,9 @@ export default class Header extends React.Component {
                 </div>
             </header>
         );
-    };
-};
+    }
+}
 
 Header.propTypes = {
     user: PropTypes.string.isRequired
-};
-
-Header.defaultProps = {
-    user: ""
 };

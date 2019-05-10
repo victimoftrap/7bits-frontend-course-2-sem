@@ -14,6 +14,7 @@ import addNewTask from "../../actions/tasks/addNewTask";
 import updateTaskById from "../../actions/tasks/updateTaskById";
 import removeTaskById from "../../actions/tasks/removeTaskById";
 import whoami from "../../actions/user/whoami";
+import PropTypes from "prop-types";
 
 /**
  * Component-container for tasks with status "inbox". Container for main page
@@ -163,8 +164,19 @@ class Todo extends React.Component {
                 {this.renderList()}
             </React.Fragment>
         );
-    };
+    }
 }
+
+Todo.propTypes = {
+    history:        PropTypes.func.isRequired,
+    isAuthorized:   PropTypes.bool.isRequired,
+    tasks:          PropTypes.array.isRequired,
+    addNewTask:     PropTypes.func.isRequired,
+    getTaskList:    PropTypes.func.isRequired,
+    updateTaskById: PropTypes.func.isRequired,
+    removeTaskById: PropTypes.func.isRequired,
+    whoami:         PropTypes.func.isRequired
+};
 
 /**
  * Function for converting current state of store to props

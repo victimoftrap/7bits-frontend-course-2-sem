@@ -12,6 +12,7 @@ import register from "../../actions/user/register";
 import Button from "../../components/buttons/baseButton/Button";
 import FormInput from "../../components/inputs/formInput/FormInput";
 import OtherAuthenticate from "../../layouts/plain/components/otherAuthenticate/OtherAuthenticate";
+import PropTypes from "prop-types";
 
 /**
  * Component for registration page
@@ -188,6 +189,14 @@ class SignUp extends React.Component {
         );
     }
 }
+
+SignUp.propTypes = {
+    history:      PropTypes.func.isRequired,
+    isAuthorized: PropTypes.bool.isRequired,
+    error:        PropTypes.object.isRequired,
+    register:     PropTypes.func.isRequired,
+    signIn:       PropTypes.func.isRequired
+};
 
 /**
  * Function for converting current state of store to props

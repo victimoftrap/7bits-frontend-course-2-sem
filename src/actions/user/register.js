@@ -16,7 +16,7 @@ export default function register(username, password) {
         };
 
         return post('/api/signup', JSON.stringify(userData), null)
-            .then((response) => {
+            .then(() => {
                 dispatch({
                     type: REGISTER_SUCCESS,
                     error: null

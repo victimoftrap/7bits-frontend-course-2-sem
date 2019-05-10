@@ -21,8 +21,8 @@ export default class OtherAuthenticate extends React.Component {
 }
 
 OtherAuthenticate.propTypes = {
-    className: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    className:   PropTypes.string.isRequired,
+    title:       PropTypes.string.isRequired,
     buttonTitle: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired
+    url:         PropTypes.string.isRequired
 };
